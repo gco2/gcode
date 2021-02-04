@@ -1,0 +1,50 @@
+ART HOMEPAGE FAIR
+-----------------
+
+gcode
+-----
++ based on flexbox
++ left-panel
+	+ terminal input
+		+ trigger commands
+		+ black/white switch
+		+ echo words to log
+		+ show element
+		+ background color fade-in/fade-out
+	+ nested tree navigation
+		+ bip when element is selected
++ center-panel
+	+ pop-up system
+		+ display texts and images inside modal windows
+		+ select element from tree navigation to display it
+		+ automatic movement inside the center of the page
+		+ play/pause button to toggle auto random position
+		+ close button
+		+ reorder all visible elements as a grid
+	+ desktop icons
+		+ double click to open same content as navigation tree
+	+ ASCII playground
+		+ ASCII profile picture
+		+ output characters and shapes randomly inside pop-up
+	+ software
+		+ FiSH.exe
+		+ binary-seq.maxpat
+		+ tamagotchi.py
+		+ faust.dsp
+		+ index.html (this website)
+		+ clicker
+		+ signal
+	+ footer
+		+ tamagotchi
+			+ weird cute characters walk freely on the footer area
++ right-panel
+	+ audio interface
+		+ ambient bgm
+		+ noise parameter
+		+ click&cuts
+		+ sliders and radio buttons
+	+ logs
+		+ page source code parsed automatically
+		+ index.html source code in binary
+		+ funny messages
+		+ element info are displayed in highlighted color w/ windups when clicked
