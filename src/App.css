@@ -5,7 +5,6 @@
   flex-direction: row;
   width: 100vw;
   height: 100vh;
-  font-size: 12px;
 }
 
 /* .app-header {
@@ -58,6 +57,7 @@
 
 .terminal-base input {
   background: transparent !important;
+  font-size: 1em !important;
 }
 
 /* terminal screen */
@@ -129,14 +129,25 @@
 
 /* DRAGGABLE */
 .window {
-  width: 15vw;
-  height: 15vh;
-  min-width: 10vw;
-  min-height: 10vh;
-  max-width: 15vw;
-  max-height: 15vh;
+  display: none;
+  min-width: 15vw;
+  min-height: 15vh;
   border: 1px solid #000;
   padding: 1em;
+  overflow: auto;
+}
+
+.window:hover {
+  cursor: grab;
+}
+
+.window-dragging:hover {
+  cursor: grabbing;
+}
+
+.box {
+  background: #fff;
+  border: 1px solid #000;
 }
 
 .no-br {
