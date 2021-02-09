@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import TerminalWindow from './components/TerminalWindow'
-import Tree from './components/Tree'
-import Desktop from './components/Desktop'
-import Log from './components/Log'
+import TerminalWindow from './components/TerminalWindow';
+import Tree from './components/Tree';
+import Desktop from './components/Desktop';
+import Log from './components/Log';
 
 class App extends React.Component {
   constructor(props) {
