@@ -1,7 +1,7 @@
 import React from 'react';
-import '../utils/nav/vanillatree/vanillatree.css'
-import VanillaTree from '../utils/nav/vanillatree/vanillatree.js'
-import data from '../assets/data/data.json'
+import '../utils/nav/vanillatree/vanillatree.css';
+import VanillaTree from '../utils/nav/vanillatree/vanillatree.js';
+import data from '../assets/data/data.json';
 
 class Tree extends React.Component {
   constructor(props) {
@@ -74,6 +74,11 @@ class Tree extends React.Component {
     // when selected
     console.log("selected: ", evt);
     
+    let window = document.getElementById(evt.detail.id);
+    if (window) {
+      window = window.closest(".window");
+      window.style.display = "block";
+    }
   }
   
   render() {
