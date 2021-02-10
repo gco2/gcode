@@ -129,12 +129,12 @@
 
 /* DRAGGABLE */
 .window {
-  display: none;
   min-width: 15vw;
   min-height: 15vh;
   border: 1px solid #000;
   padding: 1em;
   overflow: auto;
+  visibility: hidden;
 }
 
 .window:hover {

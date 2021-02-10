@@ -9,6 +9,7 @@ class Desktop extends React.Component {
     this.state = {
 
     };
+
   }
 
   componentDidMount () {
@@ -20,10 +21,9 @@ class Desktop extends React.Component {
 
   }
 
-  
   render() {
     return (        
-        <div className="desktop">
+        <div className="desktop" >
           <Me window={Window} />
         </div>
     );

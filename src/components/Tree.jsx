@@ -8,7 +8,8 @@ class Tree extends React.Component {
     super(props);
 
     this.state = {
-      tree: ""
+      tree: "",
+      event: ""
     };
 
     this.parseTree = this.parseTree.bind(this);
@@ -73,11 +74,35 @@ class Tree extends React.Component {
   selected(evt) {
     // when selected
     console.log("selected: ", evt);
+
+    this.setState({
+      event: evt
+    });
     
     let window = document.getElementById(evt.detail.id);
     if (window) {
       window = window.closest(".window");
-      window.style.display = "block";
+      
+      // let desktopWidth = document.getElementsByClassName("desktop")[0].offsetWidth;
+      // let desktopHeight = document.getElementsByClassName("desktop")[0].offsetHeight;
+
+      window.style.visibility = "visible";
+
+      // let windowWidth = window.offsetWidth;
+      // let windowHeight = window.offsetHeight;
+
+      // let posX = Math.floor(Math.random() * (desktopWidth));
+      // if ( (posX + windowWidth > desktopWidth)) {
+      //   posX = posX - windowWidth;
+      // }
+
+      // let posY = Math.floor(Math.random() * (desktopHeight));
+      // if ( (posY + windowHeight > desktopHeight)) {
+      //   posY = posY - windowHeight;
+      // }
+
+      // window.style.transform = "translate(" + posX + "px," + posY + "px)";
+      // console.log(posX, posY)
     }
   }
   
