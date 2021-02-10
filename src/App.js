@@ -13,15 +13,17 @@ class App extends React.Component {
     this.state = {
 
     };
+
+    this.treeRef = React.createRef();
+    this.terminalRef = React.createRef();
+    this.desktopRef = React.createRef();
+    this.footerRef = React.createRef();
+    this.logRef = React.createRef();
   }
 
   componentDidMount () {
     //let _this = this;
 
-    this.treeRef = React.createRef();
-    this.terminalRef = React.createRef();
-    this.desktopRef = React.createRef();
-    this.logRef = React.createRef();
   }
 
   componentWillUnmount() {
