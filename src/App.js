@@ -3,6 +3,7 @@ import './App.css';
 import TerminalWindow from './components/TerminalWindow';
 import Tree from './components/Tree';
 import Desktop from './components/Desktop';
+import Footer from './components/Footer';
 import Log from './components/Log';
 
 class App extends React.Component {
@@ -40,9 +41,7 @@ class App extends React.Component {
         
         <div className="center-panel">
           <Desktop ref={this.desktopRef} />
-          <div className="footer">
-            footer
-          </div>
+          <Footer ref={this.footerRef} />
         </div>
 
         <div className="right-panel">
