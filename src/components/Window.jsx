@@ -7,6 +7,7 @@ class Window extends React.Component {
 
     this.state = {
       isDragged: false,
+      name: "",
       controlledPosition: {
         x: 0, y: 0
       }  
@@ -17,6 +18,7 @@ class Window extends React.Component {
     this.onStop = this.onStop.bind(this);
     this.onControlledDrag = this.onControlledDrag.bind(this);
     this.onControlledDragStop = this.onControlledDragStop.bind(this);
+    this.setName = this.setName.bind(this);
     this.setRandomPosition = this.setRandomPosition.bind(this);
     this.closeWindow = this.closeWindow.bind(this);
   }
@@ -24,6 +26,7 @@ class Window extends React.Component {
   componentDidMount () {
     //let _this = this;
 
+    this.setName();
     this.setRandomPosition();
   }
 
@@ -56,6 +59,23 @@ class Window extends React.Component {
     this.onControlledDrag(e, position);
     this.onStop();
   };
+
+  setName = () => {    
+    let id = this.props.children.props.id;
+
+    let leaves = document.getElementsByClassName("vtree-leaf");
+    
+    [...leaves].forEach(element => {
+      let leaveId = element.getAttribute("data-vtree-id");
+
+      if (id === leaveId) {
+        let text = element.innerText;
+        this.setState({
+          name: text
+        })
+      }
+    });
+  }
 
   setRandomPosition = () => {
     let desktopWidth = document.getElementsByClassName("desktop")[0].offsetWidth;
@@ -114,6 +134,7 @@ class Window extends React.Component {
         <div className={`box ${isDragged ? "is-dragged" : ""}`}>
           <div className="window-handle">
             <div className="window-close" onClick={this.closeWindow}>x</div>
+            <div className="window-name">{this.state.name}</div>
           </div>
           <div className="window-content">
             {this.props.children}
