@@ -26,8 +26,6 @@ class Tree extends React.Component {
       tree: tree
     });
 
-    this.parseTree(tree);    
-
     main.addEventListener('vtree-add', function(evt) {
       // when added
     });
@@ -51,6 +49,7 @@ class Tree extends React.Component {
     
     main.addEventListener('vtree-select', (evt) => this.selected(evt) );
     
+    this.parseTree(tree);    
   }
 
   componentWillUnmount() {
