@@ -8,7 +8,7 @@ class Window extends React.Component {
     this.state = {
       isDragged: false,
       controlledPosition: {
-        x: 400, y: 200
+        x: 0, y: 0
       }  
     };
 
@@ -18,6 +18,7 @@ class Window extends React.Component {
     this.onControlledDrag = this.onControlledDrag.bind(this);
     this.onControlledDragStop = this.onControlledDragStop.bind(this);
     this.setRandomPosition = this.setRandomPosition.bind(this);
+    this.closeWindow = this.closeWindow.bind(this);
   }
 
   componentDidMount () {
@@ -77,6 +78,17 @@ class Window extends React.Component {
       controlledPosition: {x: posX, y: posY}
     })
   }
+
+  closeWindow = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    let windowElement = e.target.closest(".window");
+    windowElement.style.visibility = "hidden";
+
+    let selectedElement = document.getElementsByClassName("vtree-selected")[0];
+    selectedElement.classList.remove("vtree-selected");
+  }
   
   render() {
     const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
@@ -86,7 +98,7 @@ class Window extends React.Component {
       <Draggable
         axis="both"
         bounds=".desktop"
-        // handle=".handle"
+        // handle=".window-handle"
         defaultClassName="window"
         defaultClassNameDragging="window-dragging"
         defaultClassNameDragged="window-dragged"
@@ -100,8 +112,12 @@ class Window extends React.Component {
         {...dragHandlers}
       >
         <div className={`box ${isDragged ? "is-dragged" : ""}`}>
-          <div className="handle">Drag from here</div>
-          {this.props.children}
+          <div className="window-handle">
+            <div className="window-close" onClick={this.closeWindow}>x</div>
+          </div>
+          <div className="window-content">
+            {this.props.children}
+          </div>
         </div>
       </Draggable>
     );
