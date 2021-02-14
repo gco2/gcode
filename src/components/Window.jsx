@@ -107,7 +107,7 @@ class Window extends React.Component {
     windowElement.style.visibility = "hidden";
 
     let selectedElement = document.getElementsByClassName("vtree-selected")[0];
-    selectedElement.classList.remove("vtree-selected");
+    if (selectedElement) selectedElement.classList.remove("vtree-selected");
   }
   
   render() {
