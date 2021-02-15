@@ -1,4 +1,5 @@
 import React from 'react';
+import profile from '../assets/img/ascii-cam-04.png' 
 
 let Window;
 
@@ -34,6 +35,11 @@ class Me extends React.Component {
           </div>
         </Window>
 
+        <Window>
+          <div id="profile">
+            <img src={profile} alt="profile"/>
+          </div>
+        </Window>
       </div>
     );
   }

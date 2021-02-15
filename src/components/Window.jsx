@@ -21,6 +21,7 @@ class Window extends React.Component {
     this.setName = this.setName.bind(this);
     this.setRandomPosition = this.setRandomPosition.bind(this);
     this.closeWindow = this.closeWindow.bind(this);
+    this.preventImageDrag = this.preventImageDrag.bind(this);
   }
 
   componentDidMount () {
@@ -28,6 +29,7 @@ class Window extends React.Component {
 
     this.setName();
     this.setRandomPosition();
+    this.preventImageDrag();
   }
 
   componentWillUnmount() {
@@ -108,6 +110,15 @@ class Window extends React.Component {
 
     let selectedElement = document.getElementsByClassName("vtree-selected")[0];
     if (selectedElement) selectedElement.classList.remove("vtree-selected");
+  }
+
+  preventImageDrag = () => {
+    let images = document.getElementsByTagName("img");
+
+    [...images].forEach(element => {
+      element.setAttribute("draggable", false);
+    });
+    console.log(images);
   }
   
   render() {
