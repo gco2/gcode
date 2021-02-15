@@ -86,16 +86,18 @@ class Window extends React.Component {
     let windowWidth = document.getElementsByClassName("window")[0].offsetWidth;
     let windowHeight = document.getElementsByClassName("window")[0].offsetHeight;
 
-    let posX = Math.floor(Math.random() * (desktopWidth));
-    if ( (posX + windowWidth > desktopWidth)) {
+    let posX = Math.floor(Math.random() * (desktopWidth - windowWidth));
+    if ( (posX + windowWidth >= desktopWidth)) {
       posX = posX - windowWidth;
     }
 
-    let posY = Math.floor(Math.random() * (desktopHeight));
-    if ( (posY + windowHeight > desktopHeight)) {
-      posY = posY - windowHeight;
+    let posY = Math.floor(Math.random() * (desktopHeight - windowHeight));
+
+    if ( ((posY + windowHeight) >= (desktopHeight - windowHeight))) {
+      posY = desktopHeight - windowHeight*2;
     }
     
+
     this.setState({
       controlledPosition: {x: posX, y: posY}
     })
