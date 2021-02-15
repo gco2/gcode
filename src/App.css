@@ -136,8 +136,10 @@
   max-width: 300px;
   max-height: 280px;
   border: 1px solid #000;
+  position: relative;
   overflow: hidden;
   visibility: hidden;
+  z-index: 0;
 }
 
 .window-handle {
