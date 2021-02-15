@@ -1,5 +1,7 @@
 import React from 'react';
 import Draggable from 'react-draggable';
+import { Resizable, ResizableBox } from 'react-resizable';
+import '../assets/styles/react-resizable.css'
 
 class Window extends React.Component {
   constructor(props) {
@@ -142,17 +144,28 @@ class Window extends React.Component {
         onStart={this.handleStart}
         onDrag={this.onControlledDrag}
         onStop={this.onControlledDragStop}
+        cancel={".react-resizable-handle"}
         {...dragHandlers}
       >
-        <div className={`box ${isDragged ? "is-dragged" : ""}`}>
-          <div className="window-handle">
-            <div className="window-close" onClick={this.closeWindow}>x</div>
-            <div className="window-name">{this.state.name}</div>
+        <ResizableBox
+          width={260} 
+          height={240} 
+          minConstraints={[180, 160]} 
+          maxConstraints={[300, 280]}
+          lockAspectRatio={true}
+          draggableOpts={{grid: [25, 25]}}
+        >
+
+          <div className={`box ${isDragged ? "is-dragged" : ""}`}>
+            <div className="window-handle">
+              <div className="window-close" onClick={this.closeWindow}>x</div>
+              <div className="window-name">{this.state.name}</div>
+            </div>
+            <div className="window-content">
+              {this.props.children}
+            </div>
           </div>
-          <div className="window-content">
-            {this.props.children}
-          </div>
-        </div>
+        </ResizableBox>
       </Draggable>
     );
   }
