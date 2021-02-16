@@ -116,8 +116,12 @@ class Window extends React.Component {
     let windowElement = e.target.closest(".window");
     windowElement.style.visibility = "hidden";
 
+    let id = windowElement.childNodes[1].childNodes[0].id;
+
     let selectedElement = document.getElementsByClassName("vtree-selected")[0];
-    if (selectedElement) selectedElement.classList.remove("vtree-selected");
+    if (selectedElement && (selectedElement.getAttribute("data-vtree-id") == id)) {
+      selectedElement.classList.remove("vtree-selected");
+    }
   }
 
   preventImageDrag = () => {
@@ -150,7 +154,7 @@ class Window extends React.Component {
     }
 
     let logCache = document.getElementsByClassName("log-cache")[0];
-    console.log(text)
+
     if (logCache.innerText != ("info: " + text)) {
       logCache.name = "file: " + name;
       logCache.date = "date: " + new Date(Date.now()).toISOString();
