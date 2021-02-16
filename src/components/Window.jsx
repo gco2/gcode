@@ -22,6 +22,7 @@ class Window extends React.Component {
     this.setRandomPosition = this.setRandomPosition.bind(this);
     this.closeWindow = this.closeWindow.bind(this);
     this.preventImageDrag = this.preventImageDrag.bind(this);
+    this.setWindowOnTop = this.setWindowOnTop.bind(this);
   }
 
   componentDidMount () {
@@ -40,10 +41,7 @@ class Window extends React.Component {
     console.log("DRAG START");
     this.setState(prevState => ({ isDragged: !prevState.isDragged }));
 
-    let windows = document.getElementsByClassName("window");
-    [...windows].forEach(window => {
-      window.style.zIndex = 0;
-    });
+    this.setWindowOnTop(e);
 
     let currentWindow = e.target.closest(".window");
     currentWindow.style.zIndex = 1;
@@ -129,7 +127,17 @@ class Window extends React.Component {
       element.setAttribute("draggable", false);
     });
   }
-  
+
+  setWindowOnTop = (e) => {
+    let windows = document.getElementsByClassName("window");
+    [...windows].forEach(window => {
+      window.style.zIndex = 0;
+    });
+
+    let currentWindow = e.target.closest(".window");
+    currentWindow.style.zIndex = 1;
+  }
+  }
   render() {
     const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
     const { isDragged, controlledPosition } = this.state;

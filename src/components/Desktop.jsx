@@ -14,7 +14,6 @@ class Desktop extends React.Component {
 
   componentDidMount () {
     //let _this = this;
-
   }
 
   componentWillUnmount() {
