@@ -14,6 +14,7 @@ class Tree extends React.Component {
 
     this.parseTree = this.parseTree.bind(this);
     this.selected = this.selected.bind(this);
+    this.updateLog = this.updateLog.bind(this);
   }
 
   componentDidMount () {
@@ -47,8 +48,11 @@ class Tree extends React.Component {
       // when closed
     });
     
-    main.addEventListener('vtree-select', (evt) => this.selected(evt) );
-    
+    main.addEventListener('vtree-select', (evt) => {
+      // when selected
+      this.selected(evt);
+    });
+
     this.parseTree(tree);    
   }
 
@@ -102,6 +106,29 @@ class Tree extends React.Component {
 
       // window.style.transform = "translate(" + posX + "px," + posY + "px)";
       // console.log(posX, posY)
+
+      this.updateLog(window);
+    }
+  }
+
+  updateLog = (window) => {
+    let windowElement = window;
+
+    let name = windowElement.childNodes[0].childNodes[1].innerText;
+    let text = windowElement.childNodes[1].childNodes[0].getElementsByClassName("log-info")[0];
+    if (text) {
+      text = text.innerText;
+    } else {
+      text = "???";
+    }
+    
+    let logCache = document.getElementsByClassName("log-cache")[0];
+
+    if (logCache.innerText != ("info: " + text)) {
+      logCache.name = "file: " + name;
+      logCache.date = "date: " + new Date(Date.now()).toISOString();
+      logCache.size = "size: " + Math.floor(Math.random() * 50000) + " kb";
+      logCache.innerText = "info: " + text;
     }
   }
   
