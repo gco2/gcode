@@ -23,6 +23,7 @@ class Window extends React.Component {
     this.closeWindow = this.closeWindow.bind(this);
     this.preventImageDrag = this.preventImageDrag.bind(this);
     this.setWindowOnTop = this.setWindowOnTop.bind(this);
+    this.updateLog = this.updateLog.bind(this);
   }
 
   componentDidMount () {
@@ -43,8 +44,7 @@ class Window extends React.Component {
 
     this.setWindowOnTop(e);
 
-    let currentWindow = e.target.closest(".window");
-    currentWindow.style.zIndex = 1;
+    this.updateLog(e);
   };
 
   onDrag = (e) => {
@@ -137,7 +137,28 @@ class Window extends React.Component {
     let currentWindow = e.target.closest(".window");
     currentWindow.style.zIndex = 1;
   }
+
+  updateLog = (e) => {
+    let windowElement = e.target.offsetParent;
+
+    let name = windowElement.childNodes[0].childNodes[1].innerText;
+    let text = windowElement.childNodes[1].childNodes[0].getElementsByClassName("log-info")[0];
+    if (text) {
+      text = text.innerText;
+    } else {
+      text = "???";
+    }
+
+    let logCache = document.getElementsByClassName("log-cache")[0];
+    console.log(text)
+    if (logCache.innerText != ("info: " + text)) {
+      logCache.name = "file: " + name;
+      logCache.date = "date: " + new Date(Date.now()).toISOString();
+      logCache.size = "size: " + Math.floor(Math.random() * 50000) + " kb";
+      logCache.innerText = "info: " + text;
+    }
   }
+  
   render() {
     const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
     const { isDragged, controlledPosition } = this.state;

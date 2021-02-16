@@ -262,6 +262,17 @@
   height: 100%;
 }
 
+.log div {
+  margin: 0.2em;
+}
+
+.log-info {
+  display: none;
+}
+
+.log-cache {
+  display: none;
+}
 
 /* MEDIA QUERIES */
 

@@ -32,6 +32,9 @@ class Me extends React.Component {
               <p>Feel free to contact me at <a href="mailto:gcode.wav@gmail.com">gcode.wav@gmail.com</a></p>
               <p>Have a nice day :)</p>
             </div>
+            <div className="log-info">
+              this is just a test
+            </div>
           </div>
         </Window>
 
