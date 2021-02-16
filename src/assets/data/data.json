@@ -48,46 +48,39 @@
        "opened":false,
        "selected":false
     },
-    "photos":{
-       "label":"photos",
-       "id":"photos",
+    "images":{
+       "label":"images",
+       "id":"images",
        "parent":"",
        "opened":false,
        "selected":false
     },
-    "videos":{
-        "label":"videos",
-        "id":"videos",
-        "parent":"",
-        "opened":false,
-        "selected":false
-     }, 
-    "artworks":{
-        "label":"artworks",
-        "id":"artworks",
-        "parent":"",
-        "opened":false,
-        "selected":false
-     }, 
-    "software":{
-       "label":"software",
-       "id":"software",
-       "parent":"",
-       "opened":true,
-       "selected":false
-    },
-    "poems":{
-       "label":"poems",
-       "id":"poems",
-       "parent":"",
-       "opened":false,
-       "selected":false
+    "shapes":{
+      "label":"shapes",
+      "id":"shapes",
+      "parent":"",
+      "opened":false,
+      "selected":false
+   },
+   "software":{
+      "label":"software",
+      "id":"software",
+      "parent":"",
+      "opened":true,
+      "selected":false
+   },
+   "poems":{
+      "label":"poems",
+      "id":"poems",
+      "parent":"",
+      "opened":false,
+      "selected":false
     },
     "links":{
-       "label":"links",
-       "id":"links",
-       "parent":"",
-       "opened":false,
-       "selected":false
+      "label":"links",
+      "id":"links",
+      "parent":"",
+      "opened":false,
+      "selected":false
     }
  }
