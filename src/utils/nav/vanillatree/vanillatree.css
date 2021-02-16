@@ -62,13 +62,15 @@
 }
 
 .vtree li.vtree-leaf a.vtree-leaf-label:hover {
-	background-color: rgba(0,255,167, 0.2);
+	/* background-color: rgba(0,255,167, 0.2); */
+	background-color: rgba(204,255,0, 0.2);
 }
 
 .vtree li.vtree-leaf.vtree-selected > a.vtree-leaf-label {
 	/* background-color: #ddf300;
-	background-color: #00edff; */
-	background-color: #00ffa7;
+	background-color: #00edff;
+	background-color: #00ffa7; */
+	background-color: #ccff00;
 }
 
 .vtree-contextmenu {
