@@ -2,6 +2,7 @@ import React from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import track01 from '../assets/audio/5267TR98Y28_rev2(psx).mp3'
+import track02 from '../assets/audio/5267TR98Y28.wav'
 
 class Audio extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Audio extends React.Component {
 
     this.getTrackName = this.getTrackName.bind(this);
     this.addTrackNameMarquee = this.addTrackNameMarquee.bind(this);
+    this.updateAudio = this.updateAudio.bind(this);
     this.onPlay = this.onPlay.bind(this);
   }
 
@@ -22,11 +24,13 @@ class Audio extends React.Component {
     //let _this = this;
 
     this.setState({
-      track: track01,
-      name: this.getTrackName(track01)
+      track: "",
+      name: ""
     })
 
-    this.addTrackNameMarquee(this.getTrackName(track01));
+    this.addTrackNameMarquee("???? - ????");
+
+    this.updateAudio();
   }
 
   componentWillUnmount() {
@@ -49,8 +53,23 @@ class Audio extends React.Component {
     trackNode.innerHTML = name;
     trackNode.setAttribute("direction", "left");
     trackNode.setAttribute("scrollamount", 4);
-
+    
     trackHeader.appendChild(trackNode);
+  }
+
+  updateAudio = (e) => {
+    let marquee = document.getElementsByClassName("track-name-marquee")[0];
+
+    marquee.addEventListener('DOMSubtreeModified', (event) => {
+      let trackID;
+      let trackName = marquee.getAttribute("track-id");
+
+      if (trackName == "5267TR98Y28_rev2(psx)") {
+        this.setState({ track: track01})
+      } else if (trackName == "5267TR98Y28") {
+        this.setState({ track: track02})
+      }
+    });
   }
 
   onPlay = (e) => {
@@ -61,20 +80,24 @@ class Audio extends React.Component {
     return (
       <div id="audio">
         <AudioPlayer
-          src={track01}
+          src={this.state.track}
+          ref={this.player}
           loop
           autoPlayAfterSrcChange={true}
           showSkipControls={false}
           showJumpControls={false}
-          showDownloadProgress={false}
+          showDownloadProgress={true}
           showFilledProgress={false}
-          showFilledVolume={false}
-          showFilledVolume={false}
           showFilledVolume={false}
           customAdditionalControls={[]}
           header={"now playing: "}
+          defaultCurrentTime="loading"
+          defaultDuration="loading" 
+          customIcons={{
+            play: "▶",
+            pause: "⏸"
+          }}
           onPlay={this.onPlay}
-          ref={this.player}
         />
 
       </div>

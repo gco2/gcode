@@ -27,27 +27,20 @@
        "opened":false,
        "selected":false
     },
-    "tracks":{
-       "label":"tracks",
-       "id":"tracks",
+    "5267TR98Y28":{
+       "label":"5267TR98Y28.wav",
+       "id":"5267TR98Y28",
        "parent":"audio",
        "opened":false,
        "selected":false
     },
-    "blips":{
-       "label":"blips",
-       "id":"blips",
-       "parent":"audio",
-       "opened":false,
-       "selected":false
-    },
-    "blops":{
-       "label":"blops",
-       "id":"blops",
-       "parent":"audio",
-       "opened":false,
-       "selected":false
-    },
+    "5267TR98Y28_rev2(psx)":{
+      "label":"5267TR98Y28_rev2(psx).wav",
+      "id":"5267TR98Y28_rev2(psx)",
+      "parent":"audio",
+      "opened":false,
+      "selected":false
+   },
     "images":{
        "label":"images",
        "id":"images",

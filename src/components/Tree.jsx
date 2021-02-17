@@ -14,6 +14,7 @@ class Tree extends React.Component {
 
     this.parseTree = this.parseTree.bind(this);
     this.selected = this.selected.bind(this);
+    this.updateAudio = this.updateAudio.bind(this);
     this.updateLog = this.updateLog.bind(this);
   }
 
@@ -109,7 +110,24 @@ class Tree extends React.Component {
         // console.log(posX, posY)
 
         this.updateLog(window);
-      }      
+      }
+    }
+
+    this.updateAudio(evt);
+  }
+
+  updateAudio = (e) => {
+    let audioLeaf = e.target.offsetParent.offsetParent;
+    if (audioLeaf && (audioLeaf.getAttribute("data-vtree-id") == "audio")) {
+      let id = e.target.getAttribute("data-vtree-id");
+      let trackName = e.target.innerText;
+
+      let currentTrackName = document.getElementsByClassName("track-name-marquee")[0].innerText;
+
+      if (currentTrackName && (trackName != currentTrackName)) {
+        document.getElementsByClassName("track-name-marquee")[0].setAttribute("track-id", id);
+        document.getElementsByClassName("track-name-marquee")[0].innerText = trackName;
+      }
     }
   }
 
