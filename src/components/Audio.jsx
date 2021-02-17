@@ -1,7 +1,7 @@
 import React from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import track01 from '../assets/audio/5267TR98Y28_rev2(psx).wav'
+import track01 from '../assets/audio/5267TR98Y28_rev2(psx).mp3'
 
 class Audio extends React.Component {
   constructor(props) {
