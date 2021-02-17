@@ -35,7 +35,7 @@ class TerminalWindow extends React.Component {
         commands={{
           'open-google': () => window.open('https://www.google.com/', '_blank'),
           showmsg: this.showMsg,
-          popup: () => alert('Terminal in React'),
+          popup: (txt) => alert(txt),
           'type-text': (args, print, runCommand) => {
             const text = args.slice(1).join(' ');
             print('');
