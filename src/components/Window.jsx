@@ -143,23 +143,25 @@ class Window extends React.Component {
   }
 
   updateLog = (e) => {
-    let windowElement = e.target.offsetParent;
+    if (e.target.getAttribute("class") != "window-close") {
+      let windowElement = e.target.offsetParent;
 
-    let name = windowElement.childNodes[0].childNodes[1].innerText;
-    let text = windowElement.childNodes[1].childNodes[0].getElementsByClassName("log-info")[0];
-    if (text) {
-      text = text.innerText;
-    } else {
-      text = "???";
-    }
-
-    let logCache = document.getElementsByClassName("log-cache")[0];
-
-    if (logCache.innerText != ("info: " + text)) {
-      logCache.name = "file: " + name;
-      logCache.date = "date: " + new Date(Date.now()).toISOString();
-      logCache.size = "size: " + Math.floor(Math.random() * 50000) + " kb";
-      logCache.innerText = "info: " + text;
+      let name = windowElement.childNodes[0].childNodes[1].innerText;
+      let text = windowElement.childNodes[1].childNodes[0].getElementsByClassName("log-info")[0];
+      if (text) {
+        text = text.innerText;
+      } else {
+        text = "???";
+      }
+  
+      let logCache = document.getElementsByClassName("log-cache")[0];
+  
+      if (logCache.innerText != ("info: " + text)) {
+        logCache.name = "file: " + name;
+        logCache.date = "date: " + new Date(Date.now()).toISOString();
+        logCache.size = "size: " + Math.floor(Math.random() * 50000) + " kb";
+        logCache.innerText = "info: " + text;
+      }  
     }
   }
   
