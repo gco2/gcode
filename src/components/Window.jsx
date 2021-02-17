@@ -158,7 +158,7 @@ class Window extends React.Component {
   
       if (logCache.innerText != ("info: " + text)) {
         logCache.name = "file: " + name;
-        logCache.date = "date: " + new Date(Date.now()).toISOString();
+        logCache.date = "date: " + new Date(Date.now()).toUTCString();
         logCache.size = "size: " + Math.floor(Math.random() * 50000) + " kb";
         logCache.innerText = "info: " + text;
       }  
