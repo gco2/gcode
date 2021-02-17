@@ -4,6 +4,7 @@ import TerminalWindow from './components/TerminalWindow';
 import Tree from './components/Tree';
 import Desktop from './components/Desktop';
 import Footer from './components/Footer';
+import Audio from './components/Audio';
 import Log from './components/Log';
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
     this.terminalRef = React.createRef();
     this.desktopRef = React.createRef();
     this.footerRef = React.createRef();
+    this.audioRef = React.createRef();
     this.logRef = React.createRef();
   }
 
@@ -47,7 +49,8 @@ class App extends React.Component {
         </div>
 
         <div className="right-panel">
-          <Log reg={this.logRef} />
+          <Audio ref={this.audioRef} />
+          <Log ref={this.logRef} />
         </div>
       </div>
     );
