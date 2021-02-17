@@ -244,12 +244,49 @@
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
-  min-width: 10%;
+  min-width: 150px;
   max-width: 16vw;
   height: 100vh;
   border-left: 1px dashed black;
 }
 
+/* AUDIO */
+#audio {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100%;
+  min-width: 10%;
+  height: 100%;
+  max-height: 20vh;
+}
+
+.track-name-marquee {
+  margin-top: 1em;
+  background-color: rgba(204,255,0, 0.2);
+}
+
+.rhap_container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  font-family: inherit;
+  width: 100%;
+  margin: 1em;
+  padding: 0 !important;
+  background-color: #fbfbfb !important;
+  box-shadow: none !important;
+}
+
+.rhap_additional-controls {
+  display: none !important;
+}
+
+.rhap_volume-controls {
+  justify-content: center !important;
+}
 
 /* LOG */
 .log {
