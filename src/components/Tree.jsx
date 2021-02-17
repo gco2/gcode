@@ -85,29 +85,31 @@ class Tree extends React.Component {
     let window = document.getElementById(evt.detail.id);
     if (window) {
       window = window.closest(".window");
-      
-      // let desktopWidth = document.getElementsByClassName("desktop")[0].offsetWidth;
-      // let desktopHeight = document.getElementsByClassName("desktop")[0].offsetHeight;
 
-      window.style.visibility = "visible";
+      if(window) {
+        // let desktopWidth = document.getElementsByClassName("desktop")[0].offsetWidth;
+        // let desktopHeight = document.getElementsByClassName("desktop")[0].offsetHeight;
 
-      // let windowWidth = window.offsetWidth;
-      // let windowHeight = window.offsetHeight;
+        window.style.visibility = "visible";
 
-      // let posX = Math.floor(Math.random() * (desktopWidth));
-      // if ( (posX + windowWidth > desktopWidth)) {
-      //   posX = posX - windowWidth;
-      // }
+        // let windowWidth = window.offsetWidth;
+        // let windowHeight = window.offsetHeight;
 
-      // let posY = Math.floor(Math.random() * (desktopHeight));
-      // if ( (posY + windowHeight > desktopHeight)) {
-      //   posY = posY - windowHeight;
-      // }
+        // let posX = Math.floor(Math.random() * (desktopWidth));
+        // if ( (posX + windowWidth > desktopWidth)) {
+        //   posX = posX - windowWidth;
+        // }
 
-      // window.style.transform = "translate(" + posX + "px," + posY + "px)";
-      // console.log(posX, posY)
+        // let posY = Math.floor(Math.random() * (desktopHeight));
+        // if ( (posY + windowHeight > desktopHeight)) {
+        //   posY = posY - windowHeight;
+        // }
 
-      this.updateLog(window);
+        // window.style.transform = "translate(" + posX + "px," + posY + "px)";
+        // console.log(posX, posY)
+
+        this.updateLog(window);
+      }      
     }
   }
 
@@ -126,7 +128,7 @@ class Tree extends React.Component {
 
     if (logCache.innerText != ("info: " + text)) {
       logCache.name = "file: " + name;
-      logCache.date = "date: " + new Date(Date.now()).toISOString();
+      logCache.date = "date: " + new Date(Date.now()).toUTCString();
       logCache.size = "size: " + Math.floor(Math.random() * 50000) + " kb";
       logCache.innerText = "info: " + text;
     }
