@@ -25,7 +25,7 @@ class TerminalWindow extends React.Component {
       <Terminal
         color='#000'
         outputColor='#000'
-        backgroundColor='rgba(0,0,0,0.025)'
+        backgroundColor='#fbfbfb'
         barColor='#000'
         prompt='#000'
         style={{ fontWeight: "normal", fontSize: "12px" }}
