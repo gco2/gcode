@@ -23,6 +23,9 @@ gcode
 		+ reorder all visible elements as a grid
 	+ desktop icons
 		+ double click to open same content as navigation tree
+	+ images
+		+ devices
+		+ stock photos
 	+ ASCII playground
 		+ ASCII profile picture
 		+ output characters and shapes randomly inside pop-up
