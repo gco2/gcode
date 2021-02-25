@@ -2,7 +2,7 @@ import React from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import track01 from '../assets/audio/5267TR98Y28_rev2(psx).mp3'
-import track02 from '../assets/audio/5267TR98Y28.wav'
+import track02 from '../assets/audio/stdio.mp3'
 
 class Audio extends React.Component {
   constructor(props) {
@@ -66,7 +66,7 @@ class Audio extends React.Component {
 
       if (trackName == "5267TR98Y28_rev2(psx)") {
         this.setState({ track: track01})
-      } else if (trackName == "5267TR98Y28") {
+      } else if (trackName == "stdio") {
         this.setState({ track: track02})
       }
     });
