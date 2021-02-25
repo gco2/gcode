@@ -310,7 +310,7 @@
 }
 
 .rhap_time {
-  font-size: 14px !important;
+  font-size: 13px !important;
 }
 
 .rhap_progress-indicator {
@@ -356,7 +356,7 @@
 }
 
 .log div {
-  margin: 0.2em;
+  margin: 0.6em;
   background-color: rgba(204,255,0, 0.2);
 }
 
