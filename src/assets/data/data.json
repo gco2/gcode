@@ -28,8 +28,8 @@
        "selected":false
     },
     "5267TR98Y28":{
-       "label":"5267TR98Y28.wav",
-       "id":"5267TR98Y28",
+       "label":"stdio.wav",
+       "id":"stdio",
        "parent":"audio",
        "opened":false,
        "selected":false
