@@ -95,7 +95,7 @@ class Audio extends React.Component {
           defaultDuration="loading" 
           customIcons={{
             play: "▶",
-            pause: "⏸"
+            pause: "❚❚"
           }}
           onPlay={this.onPlay}
         />
