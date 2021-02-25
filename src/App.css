@@ -1,3 +1,8 @@
+@keyframes fade {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
 .app {
   display: flex;
   justify-content: flex-start;
@@ -45,7 +50,7 @@
 }
 
 .terminal-base * {
-  font-family: "Cutive Mono", arial, sans-serif !important;
+  font-family: "OCR EXT A", arial, sans-serif !important;
 }
 
 .terminal-base > div {
@@ -56,8 +61,17 @@
 }
 
 .terminal-base input {
-  background: transparent !important;
+  /* background: transparent !important; */
+  background-color:#ccff00;
   font-size: 1em !important;
+  opacity: 1;
+  animation: fade 2s linear forwards;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+}
+
+.terminal-base input:focus {
+  background-color:#ccff00;
 }
 
 /* terminal screen */
@@ -120,6 +134,7 @@
   justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
+  position: relative;
   width: 100%;
   height: 100%;
   position: relative;
@@ -197,6 +212,10 @@
   height: 100%;
 }
 
+#windows-me, #windows-images, #windows-shapes, #windows-software, #windows-poems {
+  position: absolute;
+}
+
 .box {
   background: #fff;
   /* border: 1px solid #000; */
@@ -219,10 +238,28 @@
   position: absolute;
 }
 
+/* IMAGES */
+#windows-images .window-content {
+  overflow: hidden;
+}
+
 .image {
   width: 100%;
   height: auto;
   min-height: 100%;
+}
+
+#system-tools img {
+  width: 299px;
+  height: 243px;
+}
+
+#wave-function img {
+  width: 301px;
+  height: 259px;
+  position: relative;
+  top: -6px;
+  left: -3px;
 }
 
 /* FOOTER */
@@ -231,10 +268,12 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
+  position: relative;
   width: 100%;
   height: 100%;
   max-height: 12vh;
   border-top: 1px dashed black;
+  padding: 0.5em;
 }
 
 /* RIGHT PANEL */
@@ -341,6 +380,14 @@
   cursor: pointer;
 }
 
+.oscilloscope {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
 /* LOG */
 .log {
   display: flex;
@@ -353,6 +400,7 @@
   height: 100%;
   border-top: 1px dashed #000;
   padding: 1em;
+  word-break: break-word;
 }
 
 .log div {

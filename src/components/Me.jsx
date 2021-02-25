@@ -1,5 +1,5 @@
 import React from 'react';
-import profile from '../assets/img/ascii-cam-04.png' 
+import profile from '../assets/img/gcode-dither.png' 
 
 let Window;
 
@@ -33,7 +33,7 @@ class Me extends React.Component {
               <p>Have a nice day :)</p>
             </div>
             <div className="log-info">
-              this is just a test
+              /.//././//////./////.../
             </div>
           </div>
         </Window>

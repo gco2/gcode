@@ -48,6 +48,20 @@
        "opened":false,
        "selected":false
     },
+    "system-tools":{
+      "label":"system-tools.png",
+      "id":"system-tools",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
+   "wave-function":{
+      "label":"wave-function.jpg",
+      "id":"wave-function",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
     "shapes":{
       "label":"shapes",
       "id":"shapes",

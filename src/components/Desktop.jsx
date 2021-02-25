@@ -1,6 +1,7 @@
 import React from 'react';
 import Window from './Window';
 import Me from './Me';
+import Images from './Images';
 
 class Desktop extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Desktop extends React.Component {
     return (        
         <div className="desktop" >
           <Me window={Window} />
+          <Images window={Window} />
         </div>
     );
   }

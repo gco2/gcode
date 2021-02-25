@@ -78,41 +78,23 @@ class Audio extends React.Component {
   }
 
   startOscilloscope = (context) => {
-    //const audioContext = new window.AudioContext()
-    
-
-    // setup canvas
     const canvas = document.createElement('canvas')
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight - 50
-    document.body.appendChild(canvas)
+    canvas.classList.add("oscilloscope");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    document.getElementsByClassName("footer")[0].appendChild(canvas);
   
-    // // setup audio element
-    // const audioElement = document.createElement('audio')
-    // audioElement.controls = true
-    // audioElement.autoplay = true
-    // audioElement.src = track01
-    // document.body.appendChild(audioElement)
-  
-    // create source from html5 audio element
     const source = context.createMediaElementSource(this.player.current.audio.current)
-    console.log(source)
-  
-    // attach oscilloscope
     const scope = new Oscilloscope(source)
     
-    // reconnect audio output to speakers
     source.connect(context.destination)
-    console.log(context)
 
-    // customize drawing options
     const ctx = canvas.getContext('2d')
     ctx.lineWidth = 2
-    ctx.strokeStyle = '#ffffff'
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)'
   
     // start default animation loop
     scope.animate(ctx)
-  
   }
 
   onPlay = (e) => {

@@ -7,7 +7,6 @@
   src: local('OCR A EXT'), url('./assets/font/OCRAEXT.ttf') format('truetype');
 }
 
-
 * {
   box-sizing: border-box;
 }

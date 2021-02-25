@@ -22,7 +22,7 @@ class Footer extends React.Component {
   render() {
     return (        
       <div className="footer">
-        footer
+        ~scope
       </div>
     );
   }

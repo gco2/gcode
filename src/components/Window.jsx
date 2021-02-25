@@ -68,7 +68,7 @@ class Window extends React.Component {
     this.onStop();
   };
 
-  setName = () => {    
+  setName = () => {
     let id = this.props.children.props.id;
 
     let leaves = document.getElementsByClassName("vtree-leaf");
@@ -103,7 +103,6 @@ class Window extends React.Component {
       posY = desktopHeight - windowHeight*2;
     }
     
-
     this.setState({
       controlledPosition: {x: posX, y: posY}
     })
