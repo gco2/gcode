@@ -65,7 +65,7 @@
   background-color:#efff00;
   font-size: 1em !important;
   opacity: 1;
-  animation: fade 2s linear forwards;
+  animation: fade 1s linear forwards;
   animation-iteration-count: infinite;
   animation-direction: normal;
 }
