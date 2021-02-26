@@ -1,6 +1,7 @@
 import React from 'react';
 import { useWindupString, WindupChildren, Pace  } from 'windups';
-import indexHTML from '../assets/software/index.txt';
+import Software from './Software'
+import indexHTML from '../assets/software/src/index.txt';
 
 // let LogText = (txt) => {
 //   let [text] = useWindupString(txt.children, {
@@ -19,7 +20,7 @@ let LogData = (props) => {
     <div className="log-data">
       <div className="log-data-title">logs</div>
       <WindupChildren>
-        <Pace getPace={(char) => (char === " " ? 100 : 10)}>
+        <Pace getPace={(char) => (char === " " ? 20 : 10)}>
           <div>{props.children.name}</div>
           <div>{props.children.date}</div>
           <div>{props.children.size}</div>
@@ -51,7 +52,7 @@ let LogStream = (props) => {
     <div className="log-stream">
       <div className="log-stream-title">data</div>
       <WindupChildren onFinished={stopScroll}>
-        <Pace getPace={(char) => (char === " " ? 40 : 20)}>
+        <Pace getPace={(char) => (char === " " ? 20 : 10)}>
           <div>{props.children.stream}</div>
         </Pace>
       </WindupChildren>
@@ -81,17 +82,6 @@ class Log extends React.Component {
 
   componentDidMount () {
     //let _this = this;
-    let logCache = document.getElementsByClassName("log-cache")[0];
-
-    logCache.addEventListener('DOMSubtreeModified', (event) => {
-      this.setState({
-        name: event.target.name,
-        date: event.target.date,
-        size: event.target.size,
-        text: event.target.innerText
-      })
-    });
-
     fetch(indexHTML)
     .then(response => response.text())
     .then(data => {
@@ -100,6 +90,31 @@ class Log extends React.Component {
       })
     });
 
+    let logCache = document.getElementsByClassName("log-cache")[0];
+
+    logCache.addEventListener('DOMSubtreeModified', (event) => {
+      this.setState({
+        name: event.target.name,
+        date: event.target.date,
+        size: event.target.size,
+        text: event.target.innerText,
+      })
+
+      // if (this.state.stream != event.target.stream) {
+      //   this.setState({
+      //     stream: event.target.stream
+      //   })
+      // }
+      
+    });
+
+    let srcCache = document.getElementsByClassName("src-cache")[0];
+
+    srcCache.addEventListener('DOMSubtreeModified', (event) => {
+      this.setState({
+        stream: event.target.innerText,
+      })
+    });
   }
 
   componentWillUnmount() {
@@ -110,8 +125,10 @@ class Log extends React.Component {
     return (
         <div className="log">
           <span className="log-cache"></span>
+          <span className="src-cache"></span>
           <LogData>{this.state}</LogData>
           <LogStream>{this.state}</LogStream>
+          <Software />
         </div>
     );
   }

@@ -76,6 +76,34 @@
       "opened":true,
       "selected":false
    },
+   "src":{
+      "label":"src",
+      "id":"src",
+      "parent":"software",
+      "opened":true,
+      "selected":false
+   },
+   "index-html":{
+      "label":"index.html",
+      "id":"index-html",
+      "parent":"src",
+      "opened":false,
+      "selected":false
+    },
+    "reverb-cpp":{
+      "label":"reverb.cpp",
+      "id":"reverb-cpp",
+      "parent":"src",
+      "opened":false,
+      "selected":false
+    },
+    "filters-eq":{
+      "label":"filters-eq.dsp",
+      "id":"filters-eq",
+      "parent":"src",
+      "opened":false,
+      "selected":false
+    },
    "poems":{
       "label":"poems",
       "id":"poems",

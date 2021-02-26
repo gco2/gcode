@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import TerminalWindow from './components/TerminalWindow';
 import Tree from './components/Tree';
+import Header from './components/Header';
 import Desktop from './components/Desktop';
 import Footer from './components/Footer';
 import Audio from './components/Audio';
@@ -17,6 +18,7 @@ class App extends React.Component {
 
     this.treeRef = React.createRef();
     this.terminalRef = React.createRef();
+    this.headerRef = React.createRef();
     this.desktopRef = React.createRef();
     this.footerRef = React.createRef();
     this.audioRef = React.createRef();
@@ -44,6 +46,7 @@ class App extends React.Component {
         </div>
         
         <div className="center-panel">
+          <Header ref={this.headerRef} />
           <Desktop ref={this.desktopRef} />
           <Footer ref={this.footerRef} />
         </div>

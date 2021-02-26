@@ -23,7 +23,7 @@ class Header extends React.Component {
   render() {
     return (        
       <div className="header">
-        <div>gcode</div>
+        <div className="header-title">gcode</div>
         <div className="clock"><Clock /></div>
       </div>
     );

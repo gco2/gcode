@@ -15,6 +15,7 @@ class Tree extends React.Component {
     this.parseTree = this.parseTree.bind(this);
     this.selected = this.selected.bind(this);
     this.updateAudio = this.updateAudio.bind(this);
+    this.updateSoftware = this.updateSoftware.bind(this);
     this.updateLog = this.updateLog.bind(this);
   }
 
@@ -114,6 +115,8 @@ class Tree extends React.Component {
     }
 
     this.updateAudio(evt);
+
+    this.updateSoftware(evt);
   }
 
   updateAudio = (e) => {
@@ -128,6 +131,21 @@ class Tree extends React.Component {
         document.getElementsByClassName("track-name-marquee")[0].setAttribute("track-id", id);
         document.getElementsByClassName("track-name-marquee")[0].innerText = trackName;
       }
+    }
+  }
+
+  updateSoftware = (e) => {
+    let leaf = e.target.offsetParent.offsetParent;
+    if (leaf && (leaf.getAttribute("data-vtree-id") == "src")) {
+      let id = e.target.getAttribute("data-vtree-id");
+      
+      let element = document.getElementById(id);
+      let text = element.innerText;
+
+      let srcCache = document.getElementsByClassName("src-cache")[0];
+      if (srcCache.innerText != text) {
+        srcCache.innerText = text;
+      }  
     }
   }
 
