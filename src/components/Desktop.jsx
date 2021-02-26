@@ -1,4 +1,5 @@
 import React from 'react';
+import Digits from './Digits';
 import Window from './Window';
 import Me from './Me';
 import Images from './Images';
@@ -24,8 +25,11 @@ class Desktop extends React.Component {
   render() {
     return (        
         <div className="desktop" >
-          <Me window={Window} />
-          <Images window={Window} />
+          <Digits />
+          <div className="desktop-windows">
+            <Me window={Window} />
+            <Images window={Window} />
+          </div>
         </div>
     );
   }
