@@ -1,5 +1,6 @@
 import React from 'react';
-import { useWindupString, WindupChildren  } from "windups";
+import { useWindupString, WindupChildren, Pace  } from 'windups';
+import indexHTML from '../assets/software/index.txt';
 
 // let LogText = (txt) => {
 //   let [text] = useWindupString(txt.children, {
@@ -11,16 +12,59 @@ import { useWindupString, WindupChildren  } from "windups";
 //   )
 // };
 
+let intervalID;
+
 let LogData = (props) => {
   return (
-    <WindupChildren>
-      <div>{props.children.name}</div>
-      <div>{props.children.date}</div>
-      <div>{props.children.size}</div>
-      <div>{props.children.text}</div>
-    </WindupChildren>
+    <div className="log-data">
+      <div className="log-data-title">logs</div>
+      <WindupChildren>
+        <Pace getPace={(char) => (char === " " ? 100 : 10)}>
+          <div>{props.children.name}</div>
+          <div>{props.children.date}</div>
+          <div>{props.children.size}</div>
+          <div>{props.children.text}</div>
+        </Pace>
+      </WindupChildren>
+    </div>
   );
 };
+
+let LogStream = (props) => {
+  // let txt = props.children.stream;
+
+  // let [text] = useWindupString(txt, {
+  //   pace: (char) => (char === " " ? 200 : 40),
+  // });
+
+  // intervalID = window.setInterval(function() {
+  //   var elem = document.getElementsByClassName('log-stream')[0];
+  //   elem.scrollTop = elem.scrollHeight;
+  // }, 100);
+  // console.log(intervalID)
+
+  return (
+    // <WindupChildren>
+    //   <div className="log-stream">{props.children.stream}</div>
+    // </WindupChildren>
+    // <div className="log-stream">{text}</div>
+    <div className="log-stream">
+      <div className="log-stream-title">data</div>
+      <WindupChildren onFinished={stopScroll}>
+        <Pace getPace={(char) => (char === " " ? 40 : 20)}>
+          <div>{props.children.stream}</div>
+        </Pace>
+      </WindupChildren>
+    </div>
+  );
+};
+
+function stopScroll() {
+  if(intervalID) {
+    window.clearInterval(intervalID);
+    intervalID = null;
+  }
+}
 
 class Log extends React.Component {
   constructor(props) {
@@ -30,7 +74,8 @@ class Log extends React.Component {
       name: "",
       date: "",
       size: "",
-      text: ""
+      text: "",
+      stream: ""
     };
   }
 
@@ -46,17 +91,27 @@ class Log extends React.Component {
         text: event.target.innerText
       })
     });
+
+    fetch(indexHTML)
+    .then(response => response.text())
+    .then(data => {
+      this.setState({
+        stream: data
+      })
+    });
+
   }
 
   componentWillUnmount() {
 
   }
-  
+
   render() {
-    return (        
+    return (
         <div className="log">
-          <span className="log-cache"></span>        
+          <span className="log-cache"></span>
           <LogData>{this.state}</LogData>
+          <LogStream>{this.state}</LogStream>
         </div>
     );
   }

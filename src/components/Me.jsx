@@ -34,6 +34,9 @@ class Me extends React.Component {
             </div>
             <div className="log-info">
               /.//././//////./////.../
+              <pre>
+                ::::::..:::::..::........::..:::::..::........:::..:
+              </pre>
             </div>
           </div>
         </Window>
