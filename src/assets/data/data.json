@@ -24,7 +24,7 @@
        "label":"audio",
        "id":"audio",
        "parent":"",
-       "opened":false,
+       "opened":true,
        "selected":false
     },
     "5267TR98Y28":{
@@ -45,7 +45,7 @@
        "label":"images",
        "id":"images",
        "parent":"",
-       "opened":false,
+       "opened":true,
        "selected":false
     },
     "system-tools":{
