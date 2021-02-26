@@ -39,7 +39,7 @@ class Window extends React.Component {
   }
 
   onStart = (e) => {
-    console.log("DRAG START");
+    //console.log("DRAG START");
     this.setState(prevState => ({ isDragged: !prevState.isDragged }));
 
     this.setWindowOnTop(e);
@@ -53,7 +53,7 @@ class Window extends React.Component {
 
 
   onStop = (e) => {
-    console.log("DRAG STOP");
+    //console.log("DRAG STOP");
     this.setState(prevState => ({ isDragged: !prevState.isDragged }));
   };
 
@@ -134,11 +134,11 @@ class Window extends React.Component {
   setWindowOnTop = (e) => {
     let windows = document.getElementsByClassName("window");
     [...windows].forEach(window => {
-      window.style.zIndex = 0;
+      window.style.zIndex = 1;
     });
 
     let currentWindow = e.target.closest(".window");
-    currentWindow.style.zIndex = 1;
+    currentWindow.style.zIndex = 2;
   }
 
   updateLog = (e) => {
