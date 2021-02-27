@@ -13,6 +13,7 @@ class Audio extends React.Component {
 
     this.state = {
       track: "",
+      name: "",
       audioContext: new window.AudioContext()
     };
 
@@ -27,11 +28,12 @@ class Audio extends React.Component {
     //let _this = this;
 
     this.setState({
-      track: "",
+      track: track02,
       name: ""
     })
 
-    this.addTrackNameMarquee("♫ ♪ ♫ ♪ ");
+    // ♫ ♪ ♫ ♪ 
+    this.addTrackNameMarquee("stdio.wav");
 
     this.updateAudio();
 

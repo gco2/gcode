@@ -53,7 +53,7 @@ class App extends React.Component {
         </div>
 
         <div className="right-panel">
-          <BrowserView>
+          <BrowserView viewClassName='audio-browser-view'>
             <Audio ref={this.audioRef} />
           </BrowserView>
           <Log ref={this.logRef} />
