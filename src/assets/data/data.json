@@ -69,6 +69,13 @@
       "opened":false,
       "selected":false
    },
+   "apple":{
+      "label":"apple.png",
+      "id":"apple",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
    "pcb-layout03":{
       "label":"pcb-layout03.png",
       "id":"pcb-layout03",
@@ -128,6 +135,13 @@
    "sample-waveform":{
       "label":"sample-waveform.png",
       "id":"sample-waveform",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
+   "windows-heaven":{
+      "label":"windows.png",
+      "id":"windows-heaven",
       "parent":"images",
       "opened":false,
       "selected":false

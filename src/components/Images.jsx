@@ -11,6 +11,8 @@ import rearPanel from '../assets/img/rear-panel.png'
 import dinPatch from '../assets/img/din-patch.png' 
 import fastTracker from '../assets/img/fast-tracker.png' 
 import sampleWaveform from '../assets/img/sample-waveform.png' 
+import apple from '../assets/img/apple.png' 
+import windowsHeaven from '../assets/img/windows.png' 
 
 let Window;
 
@@ -272,6 +274,25 @@ class Images extends React.Component {
           </div>
         </Window>
 
+        <Window>
+          <div id="apple">
+            <img src={apple} alt="apple"/>
+
+            <div className="log-info">
+              an apple
+            </div>
+          </div>
+        </Window>
+
+        <Window>
+          <div id="windows-heaven">
+            <img src={windowsHeaven} alt="windows-heaven"/>
+
+            <div className="log-info">
+              open space
+            </div>
+          </div>
+        </Window>
       </div>
     );
   }
