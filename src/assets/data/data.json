@@ -115,7 +115,15 @@
       "label":"links",
       "id":"links",
       "parent":"",
+      "opened":true,
+      "selected":false
+    },
+    "forth":{
+      "label":"forth.works",
+      "id":"forth",
+      "parent":"links",
       "opened":false,
       "selected":false
     }
+
  }

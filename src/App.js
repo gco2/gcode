@@ -7,6 +7,7 @@ import Desktop from './components/Desktop';
 import Footer from './components/Footer';
 import Audio from './components/Audio';
 import Log from './components/Log';
+import {BrowserView, MobileView, isBrowser, isMobile} from "react-device-detect";
 
 class App extends React.Component {
   constructor(props) {
@@ -52,7 +53,9 @@ class App extends React.Component {
         </div>
 
         <div className="right-panel">
-          <Audio ref={this.audioRef} />
+          <BrowserView>
+            <Audio ref={this.audioRef} />
+          </BrowserView>
           <Log ref={this.logRef} />
         </div>
       </div>

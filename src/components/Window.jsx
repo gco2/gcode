@@ -23,6 +23,7 @@ class Window extends React.Component {
     this.closeWindow = this.closeWindow.bind(this);
     this.preventImageDrag = this.preventImageDrag.bind(this);
     this.setWindowOnTop = this.setWindowOnTop.bind(this);
+    this.setMobileWindow = this.setMobileWindow.bind(this);
     this.updateLog = this.updateLog.bind(this);
   }
 
@@ -32,6 +33,7 @@ class Window extends React.Component {
     this.setName();
     this.setRandomPosition();
     this.preventImageDrag();
+    this.setMobileWindow();
   }
 
   componentWillUnmount() {
@@ -141,25 +143,34 @@ class Window extends React.Component {
     currentWindow.style.zIndex = 2;
   }
 
-  updateLog = (e) => {
-    if (e.target.getAttribute("class") != "window-close") {
-      let windowElement = e.target.offsetParent;
+  setMobileWindow = (e) => {
+    let window = document.getElementById("windows-mobile").childNodes[0].childNodes[0].childNodes[1];
+    window.innerText = "window";
+  }
 
-      let name = windowElement.childNodes[0].childNodes[1].innerText;
-      let text = windowElement.childNodes[1].childNodes[0].getElementsByClassName("log-info")[0];
-      if (text) {
-        text = text.innerText;
-      } else {
-        text = "???";
-      }
+
+  updateLog = (e) => {
+    if (e.target.offsetParent != null) {
+      if (e.target.getAttribute("class") != "window-close") {
+        let windowElement = e.target.offsetParent;
   
-      let logCache = document.getElementsByClassName("log-cache")[0];
-  
-      if (logCache.innerText != ("info: " + text)) {
-        logCache.name = "file: " + name;
-        logCache.date = "date: " + new Date(Date.now()).toUTCString();
-        logCache.size = "size: " + Math.floor(Math.random() * 50000) + " kb";
-        logCache.innerText = "info: " + text;
+        //let name = windowElement.childNodes[0].childNodes[1].innerText;
+        let name ="window"
+        let text = windowElement.childNodes[1].childNodes[0].getElementsByClassName("log-info")[0];
+        if (text) {
+          text = text.innerText;
+        } else {
+          text = "???";
+        }
+    
+        let logCache = document.getElementsByClassName("log-cache")[0];
+    
+        if (logCache.innerText != ("info: " + text)) {
+          logCache.name = "file: " + name;
+          logCache.date = "date: " + new Date(Date.now()).toUTCString();
+          logCache.size = "size: " + Math.floor(Math.random() * 50000) + " kb";
+          logCache.innerText = "info: " + text;
+        }  
       }  
     }
   }

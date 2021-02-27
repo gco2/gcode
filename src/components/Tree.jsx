@@ -17,6 +17,7 @@ class Tree extends React.Component {
     this.updateAudio = this.updateAudio.bind(this);
     this.updateSoftware = this.updateSoftware.bind(this);
     this.updateLog = this.updateLog.bind(this);
+    this.updateLink = this.updateLink.bind(this);
   }
 
   componentDidMount () {
@@ -78,7 +79,7 @@ class Tree extends React.Component {
 
   selected(evt) {
     // when selected
-    console.log("selected: ", evt);
+    //console.log("selected: ", evt);
 
     this.setState({
       event: evt
@@ -117,35 +118,42 @@ class Tree extends React.Component {
     this.updateAudio(evt);
 
     this.updateSoftware(evt);
+    
+    this.updateLink(evt);
+
   }
 
   updateAudio = (e) => {
-    let audioLeaf = e.target.offsetParent.offsetParent;
-    if (audioLeaf && (audioLeaf.getAttribute("data-vtree-id") == "audio")) {
-      let id = e.target.getAttribute("data-vtree-id");
-      let trackName = e.target.innerText;
-
-      let currentTrackName = document.getElementsByClassName("track-name-marquee")[0].innerText;
-
-      if (currentTrackName && (trackName != currentTrackName)) {
-        document.getElementsByClassName("track-name-marquee")[0].setAttribute("track-id", id);
-        document.getElementsByClassName("track-name-marquee")[0].innerText = trackName;
-      }
+    if (e.target.offsetParent != null) {
+      let audioLeaf = e.target.offsetParent.offsetParent;
+      if (audioLeaf && (audioLeaf.getAttribute("data-vtree-id") == "audio")) {
+        let id = e.target.getAttribute("data-vtree-id");
+        let trackName = e.target.innerText;
+  
+        let currentTrackName = document.getElementsByClassName("track-name-marquee")[0].innerText;
+  
+        if (currentTrackName && (trackName != currentTrackName)) {
+          document.getElementsByClassName("track-name-marquee")[0].setAttribute("track-id", id);
+          document.getElementsByClassName("track-name-marquee")[0].innerText = trackName;
+        }
+      }  
     }
   }
 
   updateSoftware = (e) => {
-    let leaf = e.target.offsetParent.offsetParent;
-    if (leaf && (leaf.getAttribute("data-vtree-id") == "src")) {
-      let id = e.target.getAttribute("data-vtree-id");
-      
-      let element = document.getElementById(id);
-      let text = element.innerText;
+    if (e.target.offsetParent != null) {
+      let leaf = e.target.offsetParent.offsetParent;
+      if (leaf && (leaf.getAttribute("data-vtree-id") == "src")) {
+        let id = e.target.getAttribute("data-vtree-id");
+        
+        let element = document.getElementById(id);
+        let text = element.innerText;
 
-      let srcCache = document.getElementsByClassName("src-cache")[0];
-      if (srcCache.innerText != text) {
-        srcCache.innerText = text;
-      }  
+        let srcCache = document.getElementsByClassName("src-cache")[0];
+        if (srcCache.innerText != text) {
+          srcCache.innerText = text;
+        }  
+      }
     }
   }
 
@@ -167,6 +175,27 @@ class Tree extends React.Component {
       logCache.date = "date: " + new Date(Date.now()).toUTCString();
       logCache.size = "size: " + Math.floor(Math.random() * 50000) + " kb";
       logCache.innerText = "info: " + text;
+    }
+  }
+
+  updateLink = (e) => {
+    if (e.target.offsetParent != null) {
+      let leaf = e.target.offsetParent.offsetParent;
+      if (leaf && (leaf.getAttribute("data-vtree-id") == "links")) {
+        let id = e.target.getAttribute("data-vtree-id");
+        
+        switch (id) {
+          case 'forth':
+            window.open("http://forth.works/", "_blank"); 
+            break;
+          case 'Papayas':
+            console.log('Mangoes and papayas are $2.79 a pound.');
+            // expected output: "Mangoes and papayas are $2.79 a pound."
+            break;
+          default:
+            
+        }
+      }
     }
   }
   
