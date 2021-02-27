@@ -95,6 +95,13 @@ class Tree extends React.Component {
 
         window.style.visibility = "visible";
 
+        let windows = document.getElementsByClassName("window");
+        [...windows].forEach(el => {
+          el.style.zIndex = 1;
+        });
+    
+        window.style.zIndex = 2;
+    
         // let windowWidth = window.offsetWidth;
         // let windowHeight = window.offsetHeight;
 

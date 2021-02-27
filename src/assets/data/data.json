@@ -62,10 +62,73 @@
       "opened":false,
       "selected":false
    },
-    "shapes":{
-      "label":"shapes",
-      "id":"shapes",
-      "parent":"",
+   "reabracadabra":{
+      "label":"reabracadabra.png",
+      "id":"reabracadabra",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
+   "pcb-layout03":{
+      "label":"pcb-layout03.png",
+      "id":"pcb-layout03",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
+   "pwm-motor":{
+      "label":"pwm-motor-555IC.png",
+      "id":"pwm-motor",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
+   "tree-concrete":{
+      "label":"tree.png",
+      "id":"tree-concrete",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
+   "pigeon":{
+      "label":"pigeons.png",
+      "id":"pigeon",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
+   "mc-202":{
+      "label":"mc-202.png",
+      "id":"mc-202",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
+   "rear-panel":{
+      "label":"rear-panel.png",
+      "id":"rear-panel",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
+   "din-patch":{
+      "label":"DIN-patch-setup.png",
+      "id":"din-patch",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
+   "fast-tracker":{
+      "label":"fast-tracker.png",
+      "id":"fast-tracker",
+      "parent":"images",
+      "opened":false,
+      "selected":false
+   },
+   "sample-waveform":{
+      "label":"sample-waveform.png",
+      "id":"sample-waveform",
+      "parent":"images",
       "opened":false,
       "selected":false
    },

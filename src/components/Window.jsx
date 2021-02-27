@@ -159,9 +159,9 @@ class Window extends React.Component {
       if (e.target.getAttribute("class") != "window-close") {
         let windowElement = e.target.offsetParent;
   
-        //let name = windowElement.childNodes[0].childNodes[1].innerText;
-        let name ="window"
+        let name = windowElement.childNodes[0].childNodes[1].innerText;
         let text = windowElement.childNodes[1].childNodes[0].getElementsByClassName("log-info")[0];
+        
         if (text) {
           text = text.innerText;
         } else {
