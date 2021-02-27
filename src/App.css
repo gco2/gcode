@@ -364,6 +364,10 @@
   /* max-height: 20vh; */
 }
 
+.audio-browser-view {
+  width: 100%;
+}
+
 .track-name-marquee {
   margin-top: 1em;
   background-color: rgba(239,255,0, 0.32);
