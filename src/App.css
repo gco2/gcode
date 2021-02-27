@@ -548,7 +548,42 @@
 
 /* Mobile landscape mode */
 @media (orientation: landscape) and (max-device-width : 960px) {
+  #windows-mobile .window {
+    visibility: visible;
+    width: 200px;
+    height: 180px;
+    z-index: 999;
+  }
 
+  #windows-mobile .window-content {
+    justify-content: center;
+    align-items: center;
+    height: 82%;
+  }
+
+  #windows-mobile a {
+    color: #00f;
+  }
+
+  .left-panel {
+    display: none;
+  }
+
+  .right-panel {
+    display: none;
+  }
+
+  .footer {
+    max-height: 50px;
+  }
+
+  .footer-title {
+    display: none;
+  }
+
+  .oscilloscope {
+    display: none;
+  }
 }
 
 @media (max-width : 550px) {

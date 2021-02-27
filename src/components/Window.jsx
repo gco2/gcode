@@ -143,9 +143,14 @@ class Window extends React.Component {
     currentWindow.style.zIndex = 2;
   }
 
-  setMobileWindow = (e) => {
-    let window = document.getElementById("windows-mobile").childNodes[0].childNodes[0].childNodes[1];
-    window.innerText = "window";
+  setMobileWindow = () => {
+    //let window = document.getElementById("windows-mobile").childNodes[0];
+
+    let windowTitle = document.getElementById("windows-mobile").childNodes[0].childNodes[0].childNodes[1];
+    windowTitle.innerText = "window";
+
+    // let windowLink = document.getElementsByClassName("window-mobile-link")[0];
+    // windowLink.addEventListener("touchstart", function bbs(){window.open("https://www.goto10.fr/", "_blank")}, false);
   }
 
 
