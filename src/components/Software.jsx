@@ -12,6 +12,7 @@ import signalZip from '../assets/software/download/signal.zip';
 import flowIcon from '../assets/img/flow.png';
 import flowZip from '../assets/software/download/flow.zip';
 import osc from '../assets/software/download/osc.pd';
+import oscIcon from '../assets/img/osc.png';
 import op3Icon from '../assets/img/pd.png';
 import op3Zip from '../assets/software/download/op3.zip';
 import fishIcon from '../assets/img/fish-exe.png';
@@ -177,7 +178,7 @@ class Software extends React.Component {
           <Window>
             <div id="osc" className="software-window">
               <div>
-                <img src={op3Icon} alt="osc"/>
+                <img src={oscIcon} alt="osc"/>
               </div>
               <div>
                 <a className="software-link" href={osc} download>osc.pd</a>

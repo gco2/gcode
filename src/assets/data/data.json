@@ -262,6 +262,34 @@
       "label":"poems",
       "id":"poems",
       "parent":"",
+      "opened":true,
+      "selected":false
+    },
+    "clic":{
+      "label":"clic",
+      "id":"clic",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "hollow":{
+      "label":"hollow",
+      "id":"hollow",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "highway":{
+      "label":"highway",
+      "id":"highway",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "frog":{
+      "label":"frog",
+      "id":"frog",
+      "parent":"poems",
       "opened":false,
       "selected":false
     },
