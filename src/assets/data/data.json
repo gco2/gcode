@@ -160,6 +160,48 @@
       "opened":true,
       "selected":false
    },
+   "download":{
+      "label":"download",
+      "id":"download",
+      "parent":"software",
+      "opened":true,
+      "selected":false
+   },
+   "fish":{
+      "label":"FiSH.exe",
+      "id":"fish",
+      "parent":"download",
+      "opened":true,
+      "selected":false
+   },
+   "flow":{
+      "label":"flow.zip",
+      "id":"flow",
+      "parent":"download",
+      "opened":true,
+      "selected":false
+   },
+   "signal":{
+      "label":"signal.zip",
+      "id":"signal",
+      "parent":"download",
+      "opened":true,
+      "selected":false
+   },
+   "osc":{
+      "label":"osc.pd",
+      "id":"osc",
+      "parent":"download",
+      "opened":true,
+      "selected":false
+   },
+   "op3":{
+      "label":"op3.zip",
+      "id":"op3",
+      "parent":"download",
+      "opened":true,
+      "selected":false
+   },
    "index-html":{
       "label":"index.html",
       "id":"index-html",
@@ -177,6 +219,41 @@
     "filters-eq":{
       "label":"filters-eq.dsp",
       "id":"filters-eq",
+      "parent":"src",
+      "opened":false,
+      "selected":false
+    },
+    "binary-tree":{
+      "label":"binary-tree.cpp",
+      "id":"binary-tree",
+      "parent":"src",
+      "opened":false,
+      "selected":false
+    },
+    "sequencer":{
+      "label":"sequencer.pde",
+      "id":"sequencer",
+      "parent":"src",
+      "opened":false,
+      "selected":false
+    },
+    "modulation":{
+      "label":"modulation.pd",
+      "id":"modulation",
+      "parent":"src",
+      "opened":false,
+      "selected":false
+    },
+    "tamago":{
+      "label":"tamago.py",
+      "id":"tamago",
+      "parent":"src",
+      "opened":false,
+      "selected":false
+    },
+    "vx":{
+      "label":"vx.sh",
+      "id":"vx",
       "parent":"src",
       "opened":false,
       "selected":false

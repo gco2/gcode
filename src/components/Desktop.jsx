@@ -3,6 +3,7 @@ import Digits from './Digits';
 import Window from './Window';
 import Me from './Me';
 import Images from './Images';
+import Software from './Software'
 
 class Desktop extends React.Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class Desktop extends React.Component {
 
             <Me window={Window} />
             <Images window={Window} />
+            <Software window={Window} />
           </div>
         </div>
     );

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useWindupString, WindupChildren, Pace  } from 'windups';
-import Software from './Software'
 import indexHTML from '../assets/software/src/index.txt';
 
 // let LogText = (txt) => {
@@ -128,7 +127,6 @@ class Log extends React.Component {
           <span className="src-cache"></span>
           <LogData>{this.state}</LogData>
           <LogStream>{this.state}</LogStream>
-          <Software />
         </div>
     );
   }
