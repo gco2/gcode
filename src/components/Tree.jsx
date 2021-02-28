@@ -95,6 +95,9 @@ class Tree extends React.Component {
 
         window.style.visibility = "visible";
 
+        // let content = window.childNodes[1];
+        // content.style.opacity = "1";
+
         let windows = document.getElementsByClassName("window");
         [...windows].forEach(el => {
           el.style.zIndex = 1;

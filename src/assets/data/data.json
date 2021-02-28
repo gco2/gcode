@@ -272,6 +272,20 @@
       "opened":false,
       "selected":false
     },
+    "buffer":{
+      "label":"buffer",
+      "id":"buffer",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "formes":{
+      "label":"formes",
+      "id":"formes",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
     "hollow":{
       "label":"hollow",
       "id":"hollow",
@@ -293,11 +307,25 @@
       "opened":false,
       "selected":false
     },
+    "ochiba":{
+      "label":"ochiba",
+      "id":"ochiba",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "son":{
+      "label":"son",
+      "id":"son",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
     "links":{
       "label":"links",
       "id":"links",
       "parent":"",
-      "opened":true,
+      "opened":false,
       "selected":false
     },
     "100r":{

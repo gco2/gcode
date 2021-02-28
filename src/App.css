@@ -499,6 +499,60 @@
 
 }
 
+#buffer {
+
+}
+
+.poems-buffer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 100px;
+  z-index: -10;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.poems-buffer div {
+  display: flex;
+  flex-direction: row;
+}
+
+#formes {
+
+}
+
+.poems-formes {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 88px;
+  z-index: -10;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.poems-formes div {
+  display: flex;
+  flex-direction: row;
+}
+
+#ochiba {
+
+}
+
+#ochiba p {
+  margin: 0.5em;
+}
+
+#son {
+
+}
+
+#son p {
+  margin: 0.5em;
+}
+
 /* FOOTER */
 .footer {
   display: flex;

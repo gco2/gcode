@@ -117,6 +117,9 @@ class Window extends React.Component {
     let windowElement = e.target.closest(".window");
     windowElement.style.visibility = "hidden";
 
+    // let content = windowElement.childNodes[1];
+    // content.style.opacity = "0";
+
     let id = windowElement.childNodes[1].childNodes[0].id;
 
     let selectedElement = document.getElementsByClassName("vtree-selected")[0];

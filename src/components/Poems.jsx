@@ -87,6 +87,108 @@ class Poems extends React.Component {
               </div>
             </div>
           </Window>
+
+          <Window>
+            <div id="buffer" className="poems-window">
+              <div className="poems-buffer">
+                <div>
+                  <marquee behavior="scroll" direction="down" scrollamount="20">░</marquee>
+                  <marquee behavior="scroll" direction="up" scrollamount="20">▓</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="10">▒</marquee>
+                  <marquee behavior="scroll" direction="up" scrollamount="20">█</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="20">░</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="10">░</marquee>
+                  <marquee behavior="scroll" direction="up" scrollamount="20">█</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="20">▒</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="10">░</marquee>
+                  <marquee behavior="scroll" direction="up" scrollamount="20">█</marquee>
+                  <marquee behavior="scroll" direction="up" scrollamount="20">█</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="10">░</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="20">░</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="20">░</marquee>
+                </div>
+                <div>
+                  <marquee behavior="scroll" direction="up" scrollamount="20">█</marquee>
+                  <marquee behavior="scroll" direction="up" scrollamount="20">░</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="20">░</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="20">█</marquee>
+                  <marquee behavior="scroll" direction="up" scrollamount="20">░</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="20">▒</marquee>
+                  <marquee behavior="scroll" direction="up" scrollamount="10">█</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="20">▒</marquee>
+                  <marquee behavior="scroll" direction="up" scrollamount="20">░</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="20">▒</marquee>
+                  <marquee behavior="scroll" direction="up" scrollamount="10">█</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="20">▒</marquee>
+                  <marquee behavior="scroll" direction="up" scrollamount="20">░</marquee>
+                  <marquee behavior="scroll" direction="down" scrollamount="10">█</marquee>
+                </div>
+              </div>  
+              <div className="log-info">
+                ░▒█░▒░▒░▒░▒░▒░▒░▒░▒░▒░▒░
+              </div>
+            </div>
+          </Window>
+
+          <Window>
+            <div id="formes" className="poems-window">
+              <div className="poems-formes">
+                <div>
+                  <marquee width="50%" behavior="scroll" direction="left" scrollamount="4">∎</marquee>
+                  <marquee width="50%" behavior="scroll" direction="right" scrollamount="4">●</marquee>
+                  <marquee width="50%" behavior="scroll" direction="left" scrollamount="2">x</marquee>
+                  <marquee width="50%" behavior="scroll" direction="right" scrollamount="4">▲</marquee>
+                </div>
+                <div>
+                  <marquee width="50%" behavior="scroll" direction="left" scrollamount="4">x</marquee>
+                  <marquee width="50%" behavior="scroll" direction="left" scrollamount="2">∎</marquee>
+                  <marquee width="50%" behavior="scroll" direction="right" scrollamount="4">●</marquee>
+                  <marquee width="50%" behavior="scroll" direction="left" scrollamount="2">▲</marquee>
+                </div>
+                <div>
+                  <marquee width="50%" behavior="scroll" direction="left" scrollamount="4">∎</marquee>
+                  <marquee width="50%" behavior="scroll" direction="right" scrollamount="4">●</marquee>
+                  <marquee width="50%" behavior="scroll" direction="right" scrollamount="2">x</marquee>
+                  <marquee width="50%" behavior="scroll" direction="left" scrollamount="4">▲</marquee>
+                </div>
+                <div>
+                  <marquee width="50%" behavior="scroll" direction="left" scrollamount="4">●</marquee>
+                  <marquee width="50%" behavior="scroll" direction="left" scrollamount="2">x</marquee>
+                  <marquee width="50%" behavior="scroll" direction="left" scrollamount="4">▲</marquee>
+                  <marquee width="50%" behavior="scroll" direction="right" scrollamount="4">∎</marquee>
+                </div>
+              </div>  
+              <div className="log-info">
+                ∎▲●x
+              </div>
+            </div>
+          </Window>
+
+          <Window>
+            <div id="ochiba" className="poems-window">
+              <div className="poems-text">
+                <p>裏お店</p>
+                <p>思うを見せて</p>
+                <p> 飛ぶ落ち葉</p>
+              </div>  
+              <div className="log-info">
+                良寛
+              </div>
+            </div>
+          </Window>
+
+          <Window>
+            <div id="son" className="poems-window">
+              <div className="poems-text">
+                <p>le son du soleil</p>
+                <p>une abeille végétale</p>
+                <p> point blanc sur le mur</p>
+              </div>  
+              <div className="log-info">
+                5-7-5
+              </div>
+            </div>
+          </Window>
         </div>
     );
   }
