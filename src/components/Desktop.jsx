@@ -42,8 +42,8 @@ class Desktop extends React.Component {
 
             <Me window={Window} />
             <Images window={Window} />
-            <Software window={Window} />
             <Poems window={Window} />
+            <Software window={Window} />
           </div>
         </div>
     );

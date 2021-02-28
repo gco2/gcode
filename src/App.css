@@ -72,6 +72,7 @@
 
 .terminal-base input:focus {
   background-color:#efff00;
+  animation: 0;
 }
 
 /* terminal screen */

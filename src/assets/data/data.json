@@ -146,6 +146,69 @@
       "opened":false,
       "selected":false
    },
+   "poems":{
+      "label":"poems",
+      "id":"poems",
+      "parent":"",
+      "opened":true,
+      "selected":false
+    },
+    "clic":{
+      "label":"clic",
+      "id":"clic",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "buffer":{
+      "label":"buffer",
+      "id":"buffer",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "formes":{
+      "label":"formes",
+      "id":"formes",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "hollow":{
+      "label":"hollow",
+      "id":"hollow",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "highway":{
+      "label":"highway",
+      "id":"highway",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "frog":{
+      "label":"frog",
+      "id":"frog",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "ochiba":{
+      "label":"ochiba",
+      "id":"ochiba",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
+    "son":{
+      "label":"son",
+      "id":"son",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
    "software":{
       "label":"software",
       "id":"software",
@@ -255,69 +318,6 @@
       "label":"vx.sh",
       "id":"vx",
       "parent":"src",
-      "opened":false,
-      "selected":false
-    },
-   "poems":{
-      "label":"poems",
-      "id":"poems",
-      "parent":"",
-      "opened":true,
-      "selected":false
-    },
-    "clic":{
-      "label":"clic",
-      "id":"clic",
-      "parent":"poems",
-      "opened":false,
-      "selected":false
-    },
-    "buffer":{
-      "label":"buffer",
-      "id":"buffer",
-      "parent":"poems",
-      "opened":false,
-      "selected":false
-    },
-    "formes":{
-      "label":"formes",
-      "id":"formes",
-      "parent":"poems",
-      "opened":false,
-      "selected":false
-    },
-    "hollow":{
-      "label":"hollow",
-      "id":"hollow",
-      "parent":"poems",
-      "opened":false,
-      "selected":false
-    },
-    "highway":{
-      "label":"highway",
-      "id":"highway",
-      "parent":"poems",
-      "opened":false,
-      "selected":false
-    },
-    "frog":{
-      "label":"frog",
-      "id":"frog",
-      "parent":"poems",
-      "opened":false,
-      "selected":false
-    },
-    "ochiba":{
-      "label":"ochiba",
-      "id":"ochiba",
-      "parent":"poems",
-      "opened":false,
-      "selected":false
-    },
-    "son":{
-      "label":"son",
-      "id":"son",
-      "parent":"poems",
       "opened":false,
       "selected":false
     },
@@ -450,6 +450,13 @@
     "minitel":{
       "label":"minitel.org",
       "id":"minitel",
+      "parent":"links",
+      "opened":false,
+      "selected":false
+    },
+    "nanoloop":{
+      "label":"nanoloop.com",
+      "id":"nanoloop",
       "parent":"links",
       "opened":false,
       "selected":false

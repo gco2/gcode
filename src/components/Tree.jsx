@@ -275,6 +275,9 @@ class Tree extends React.Component {
           case '1bitmusic':
                 window.open("http://www.1bitmusic.com/", "_blank"); 
                 break;
+          case 'nanoloop':
+                window.open("http://nanoloop.com/", "_blank"); 
+                break;
           default:
             
         }
