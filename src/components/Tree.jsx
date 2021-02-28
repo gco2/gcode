@@ -192,13 +192,86 @@ class Tree extends React.Component {
         let id = e.target.getAttribute("data-vtree-id");
         
         switch (id) {
+          case 'idpw':
+            window.open("http://idpw.org/", "_blank");
+            break;
+          case 'code-poems':
+            window.open("http://code-poems.com/", "_blank"); 
+            break;
           case 'forth':
-            window.open("http://forth.works/", "_blank"); 
+            window.open("http://forth.works/ ", "_blank"); 
             break;
-          case 'Papayas':
-            console.log('Mangoes and papayas are $2.79 a pound.');
-            // expected output: "Mangoes and papayas are $2.79 a pound."
+          case 'esoteric':
+            window.open("https://esoteric.codes/", "_blank");
             break;
+          case 'esolangs':
+              window.open("https://esolangs.org/", "_blank");
+              break;
+          case 'lines':
+            window.open("https://llllllll.co/", "_blank");
+          case 'o--o':
+              window.open("http://o--o.jp/", "_blank");
+              break;
+          case 'code-poetry':
+              window.open("http://code-poetry.com/", "_blank");
+              break;
+          case 'faust':
+              window.open("https://faustide.grame.fr/", "_blank");
+              break;
+          case 'goto10':
+              window.open("https://www.goto10.fr/", "_blank");
+              break;
+          case 'minitel':
+              window.open("https://www.minitel.org/", "_blank"); 
+              break;
+          case 'yami-ichi':
+              window.open("http://yami-ichi.biz/", "_blank"); 
+              break;
+          case 'scene':
+              window.open("https://files.scene.org/", "_blank"); 
+              break;
+          case 'pouët':
+                window.open("http://www.pouet.net/", "_blank");
+                break;
+          case 'telas':
+                window.open("http://www.telas.parts/", "_blank"); 
+                break;
+          case 'rfc4122':
+                window.open("https://www.ietf.org/rfc/rfc4122.txt", "_blank"); 
+                break;
+          case 'rybn':
+                window.open("http://www.rybn.org/", "_blank"); 
+                break;
+          case 'world4jack':
+                window.open("https://world4jack.neocities.org/", "_blank"); 
+                break;
+          case 'grain-noir':
+                window.open("http://grain-noir.com/", "_blank"); 
+                break;
+          case 'hexler':
+                window.open("https://hexler.net/", "_blank"); 
+                break;
+          case 'git-sr':
+                window.open("https://sr.ht/", "_blank"); 
+                break;
+          case '100r':
+                window.open("https://100r.co/", "_blank"); 
+                break;
+          case '108mhz':
+                window.open("https://108mhz.wordpress.com/modulation/", "_blank"); 
+                break;
+          case 'vtol':
+                window.open("https://vtol.cc/", "_blank"); 
+                break;
+          case 'anthology':
+                window.open("https://anthology.rhizome.org/", "_blank"); 
+                break;
+          case 'eranhill':
+                window.open("https://eranhilleli.com/", "_blank"); 
+                break;
+          case '1bitmusic':
+                window.open("http://www.1bitmusic.com/", "_blank"); 
+                break;
           default:
             
         }

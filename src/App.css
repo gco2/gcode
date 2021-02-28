@@ -90,6 +90,7 @@
   height: 100%;
   overflow: auto;
   word-break: break-word;
+  padding-bottom: 1em;
 }
 
 /* CENTER PANEL */
