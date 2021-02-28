@@ -181,7 +181,7 @@ class Poems extends React.Component {
             <div id="son" className="poems-window">
               <div className="poems-text">
                 <p>le son du soleil</p>
-                <p>une abeille végétale</p>
+                <p>une abeille et son écho</p>
                 <p> point blanc sur le mur</p>
               </div>  
               <div className="log-info">
