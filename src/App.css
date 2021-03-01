@@ -314,6 +314,19 @@
   min-height: 100%;
 }
 
+#profile {
+  text-align: center;
+}
+
+#profile img {
+  width: 80%;
+}
+
+#windows-me .window-content {
+  width: 99%;
+  margin: 0 auto;
+}
+
 #system-tools img {
   width: 299px;
   height: 243px;
