@@ -597,6 +597,10 @@
   width: 100%;
 }
 
+#audio-inteface {
+  display: none;
+}
+
 .track-name-marquee {
   margin-top: 1em;
   background-color: rgba(239,255,0, 0.32);
@@ -625,6 +629,7 @@
 
 .rhap_button-clear {
   color: rgba(0,0,0,0.2) !important;
+  outline: none;
 }
 
 .rhap_additional-controls {
