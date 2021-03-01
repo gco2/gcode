@@ -25,7 +25,7 @@ class Poems extends React.Component {
   }
 
   clicClac = (e) => {
-    console.log(e)
+    //console.log(e)
     let clic = document.getElementsByClassName("poems-clic")[0];
 
     let txt = e.target.innerText;
@@ -66,10 +66,10 @@ class Poems extends React.Component {
           <Window>
             <div id="highway" className="poems-window">
               <div className="poems-text">
-                <marquee behavior="scroll" direction="left" scrollamount="1">car</marquee>
-                <marquee behavior="scroll" direction="right" scrollamount="12">car</marquee>
-                <marquee behavior="scroll" direction="left" scrollamount="20">car</marquee>
-                <marquee behavior="scroll" direction="right" scrollamount="50">car</marquee>
+                <marquee behavior="scroll" direction="left" scrollamount="1">zero</marquee>
+                <marquee behavior="scroll" direction="right" scrollamount="12">one</marquee>
+                <marquee behavior="scroll" direction="left" scrollamount="20">zero</marquee>
+                <marquee behavior="scroll" direction="right" scrollamount="50">one</marquee>
               </div>  
               <div className="log-info">
                 bitstream 010010101
