@@ -6,7 +6,7 @@ import binaryTree from '../assets/software/src/binary-tree.cpp';
 import sequencer from '../assets/software/src/sequencer.txt';
 import modulation from '../assets/software/src/modulation.txt';
 import tamago from '../assets/software/src/tamago.py';
-import vx from '../assets/software/src/vx.sh';
+import vx from '../assets/software/src/vx.txt';
 import signalIcon from '../assets/img/signal.png';
 import signalZip from '../assets/software/download/signal.zip';
 import flowIcon from '../assets/img/flow.png';

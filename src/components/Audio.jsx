@@ -6,7 +6,7 @@ import track01 from '../assets/audio/stdio.mp3'
 import track02 from '../assets/audio/dust__45mph.mp3'
 import track03 from '../assets/audio/IPv4__RFC791.mp3'
 import track04 from '../assets/audio/5267TR98Y28_rev2(psx).mp3'
-import track05 from '../assets/audio/unknown__portal∷192.168.1.1∷(waterfall edit).mp3'
+import track05 from '../assets/audio/unknown__portal192-168-1-1(waterfall-edit).mp3'
 
 import clic from '../assets/audio/clic.mp3'
 import close from '../assets/audio/close.mp3'
@@ -30,6 +30,9 @@ class Audio extends React.Component {
     this.startOscilloscope = this.startOscilloscope.bind(this);
     this.setAudioInterface = this.setAudioInterface.bind(this);
     this.onPlay = this.onPlay.bind(this);
+    this.onListen = this.onListen.bind(this);
+    this.onSeeking = this.onSeeking.bind(this);
+    this.onCanPlayThrough = this.onCanPlayThrough.bind(this);
   }
 
   componentDidMount () {
@@ -89,7 +92,7 @@ class Audio extends React.Component {
         this.setState({ track: track03})
       } else if (trackName == "5267TR98Y28_rev2(psx)") {
         this.setState({ track: track04})
-      } else if (trackName == "unknown__portal∷192.168.1.1∷(waterfall edit)") {
+      } else if (trackName == "unknown__portal∷192-168-1-1∷(waterfall-edit)") {
         this.setState({ track: track05})
       }
     });
@@ -200,14 +203,29 @@ class Audio extends React.Component {
   }
 
   onPlay = (e) => {
-    console.log(e)
+    //console.log(e)
 
     if(this.state.audioContext.state === 'suspended') {
       this.state.audioContext.resume().then(function() {
 
+      }).catch(error => {
+        //console.log(error)
       });
     }
   
+  }
+
+  onListen = (e) => {
+    //console.log(e)
+  
+  }
+
+  onSeeking = (e) => {
+    //console.log(e)
+  }
+
+  onCanPlayThrough = (e) => {
+    //console.log(e)
   }
 
   render() {
@@ -216,7 +234,8 @@ class Audio extends React.Component {
         <AudioPlayer
           src={this.state.track}
           ref={this.player}
-          loop
+          loop={true}
+          autoPlay={false}
           autoPlayAfterSrcChange={true}
           showSkipControls={false}
           showJumpControls={false}
@@ -232,6 +251,9 @@ class Audio extends React.Component {
             pause: "❚❚"
           }}
           onPlay={this.onPlay}
+          onListen={this.onListen}
+          onSeeking={this.onSeeking}
+          onCanPlayThrough={this.onCanPlayThrough}
         />
 
         <div id="audio-interface">

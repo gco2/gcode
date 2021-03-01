@@ -50,7 +50,8 @@
 }
 
 .terminal-base * {
-  font-family: "OCR EXT A", arial, sans-serif !important;
+  font-family: 'OCR A EXT' !important;
+  font-size: 11px !important;
 }
 
 .terminal-base > div {
@@ -63,7 +64,7 @@
 .terminal-base input {
   /* background: transparent !important; */
   background-color:#efff00;
-  font-size: 1em !important;
+  font-size: 11px !important;
   opacity: 1;
   animation: fade 1s linear forwards;
   animation-iteration-count: infinite;

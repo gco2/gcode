@@ -16,7 +16,8 @@ const quotesPool = [
   ["whoami"],
   ["≈~"],
   ["it's alright"],
-  ["bip"]
+  ["bip"],
+  ["everything is connected"]
 ];
 
 let oldQuoteIndex;
