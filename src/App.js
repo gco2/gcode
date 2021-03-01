@@ -47,7 +47,6 @@ class App extends React.Component {
         </div>
         
         <div className="center-panel">
-        <a className="btn border-smaller" id="random-quote" href="#" title="Next Quote">Random Quote</a>
           <Header ref={this.headerRef} />
           <Desktop ref={this.desktopRef} />
           <Footer ref={this.footerRef} />
