@@ -83,7 +83,7 @@ class TerminalWindow extends React.Component {
     super(props);
 
     this.state = {
-      quote: "hello world (type 'help' or try random commands) "
+      quote: "type 'help' or try random commands"
     };
   }
 
