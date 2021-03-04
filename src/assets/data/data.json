@@ -57,7 +57,7 @@
    },
    "unknown__portal192-168-1-1(waterfall-edit)":{
       "label":"unknown__portal∷192.168.1.1∷(waterfall edit).wav",
-      "id":"unknown__portal192-168-1-1(waterfall-edit)",
+      "id":"unknown__portal-192-168-1-1(waterfall-edit)",
       "parent":"audio",
       "opened":false,
       "selected":false
