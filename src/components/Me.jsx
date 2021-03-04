@@ -28,8 +28,9 @@ class Me extends React.Component {
               <p>Hi, my name is Guillaume Piccarreta.</p>
               <p>Welcome to my web portal interface.</p>
               <p>I am a software developer, teacher, audio and visual artist working with code.</p>
+              <p>The main focus of my actual research is to create artworks and custom tools crossing the physical and digital world boundaries.</p>
               <p>I like to make experimental software, write and fix bugs while listenning to white noise with a lowpass filter cutoff frequency set to 440Hz.</p>
-              <p>Feel free to contact me at <a href="mailto:gcode.wav@gmail.com">gcode.wav@gmail.com</a></p>
+              <p>Feel free to explore my portal interface or contact me at <a href="mailto:gcode.wav@gmail.com">gcode.wav@gmail.com</a> for inquiries</p>
               <p>Have a nice day :)</p>
             </div>
             <div className="log-info">
