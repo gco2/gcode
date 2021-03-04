@@ -26,6 +26,7 @@ class Poems extends React.Component {
 
   clicClac = (e) => {
     //console.log(e)
+    let clicWindow = document.getElementById("clic");
     let clic = document.getElementsByClassName("poems-clic")[0];
 
     let txt = e.target.innerText;
@@ -42,9 +43,9 @@ class Poems extends React.Component {
         <div id="windows-poems">
 
           <Window>
-            <div id="clic" className="poems-window">
+            <div id="clic" className="poems-window" onClick={this.clicClac}>
               <div className="poems-text">
-                <p className="poems-clic" onClick={this.clicClac}>clic</p>
+                <p className="poems-clic">clic</p>
               </div>  
               <div className="log-info">
                 clic/clac
