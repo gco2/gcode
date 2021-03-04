@@ -94,17 +94,27 @@ class TerminalWindow extends React.Component {
     this.state = {
       quote: "type 'help' or try random commands"
     };
+
+    this.focusTerminalInput = this.focusTerminalInput.bind(this);
   }
 
   componentDidMount () {
     //let _this = this;
 
+    let terminal = document.getElementsByClassName("terminal-base")[0];
+    terminal.addEventListener("click", this.focusTerminalInput);
   }
 
   componentWillUnmount() {
 
   }
 
+  focusTerminalInput = () => {
+    let terminal = document.getElementsByClassName("terminal-base")[0];
+
+    let input = terminal.getElementsByTagName("input")[0];
+    input.focus();
+  }
   
   render() {
     return (        
@@ -141,7 +151,6 @@ class TerminalWindow extends React.Component {
           'type': "types a text"
         }}
         msg=''
-
       />
 );
   }
