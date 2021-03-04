@@ -218,6 +218,9 @@ class Tree extends React.Component {
           case 'code-poetry':
               window.open("http://code-poetry.com/", "_blank");
               break;
+          case 'faitiche':
+              window.open("https://faitiche.de/", "_blank");
+              break;
           case 'faust':
               window.open("https://faustide.grame.fr/", "_blank");
               break;

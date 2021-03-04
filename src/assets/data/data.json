@@ -412,6 +412,13 @@
       "opened":false,
       "selected":false
     },
+    "faitiche":{
+      "label":"faitiche.de",
+      "id":"faitiche",
+      "parent":"links",
+      "opened":false,
+      "selected":false
+    },
     "faust":{
       "label":"faust.grame.fr",
       "id":"faust",
