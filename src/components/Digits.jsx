@@ -149,45 +149,6 @@ class Digits extends React.Component {
             <li className="digit">0</li>
             <li className="digit">1</li>
             <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-            <li className="digit">1</li>
-            <li className="digit">0</li>
-
           </ul>
         </div>
     );
