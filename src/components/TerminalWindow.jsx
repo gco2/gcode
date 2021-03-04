@@ -17,7 +17,15 @@ const quotesPool = [
   ["≈~"],
   ["it's alright"],
   ["bip"],
-  ["everything is connected"]
+  ["everything is connected"],
+  ["where is my mind"],
+  ["what's that ?"],
+  ["<p>this is an HTML tag</p>"],
+  ["please say it again"],
+  ["#define undefined"],
+  ["昔のぼくらはこどもたち"],
+  ["◆◆◆◆"]
+
 ];
 
 let oldQuoteIndex;
