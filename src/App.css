@@ -604,11 +604,15 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   min-width: 10%;
   height: auto;
   /* max-height: 20vh; */
+}
+
+#audio-player {
+  width: 100%;
 }
 
 .audio-browser-view {
@@ -636,6 +640,10 @@
   padding: 0 !important;
   background-color: #fbfbfb !important;
   box-shadow: none !important;
+}
+
+.rhap_main {
+  margin-right: 3em;
 }
 
 .rhap_header {

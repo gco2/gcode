@@ -1,6 +1,6 @@
 import React from 'react';
 import Oscilloscope from 'oscilloscope';
-import * as Tone from 'tone';
+import AudioEffects from './AudioEffects';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import track01 from '../assets/audio/stdio.mp3'
@@ -12,18 +12,6 @@ import clic from '../assets/audio/clic.mp3'
 import close from '../assets/audio/close.mp3'
 import hover from '../assets/audio/hover.mp3'
 import { useWindupString, WindupChildren, Pace  } from 'windups';
-
-// let AudioTitle = (props) => {
-//   return (
-//     <div className="audio-title">
-//       <WindupChildren>
-//         <Pace getPace={(char) => (char === " " ? 20 : 10)}>
-//           <marquee className="track-name-marquee" direction="left" scrollamount="4" >{props.children.name}</marquee>
-//         </Pace>
-//       </WindupChildren>
-//     </div>
-//   );
-// };
 
 let AudioTitle = (props) => {
   return (
@@ -45,9 +33,7 @@ class Audio extends React.Component {
       track: "",
       name: "",
       header: "player",
-      audioContext: new window.AudioContext(),
-      effect: "",
-      panner: ''
+      audioContext: new window.AudioContext()
     };
 
     this.getTrackName = this.getTrackName.bind(this);
@@ -55,8 +41,6 @@ class Audio extends React.Component {
     this.updateAudio = this.updateAudio.bind(this);
     this.startOscilloscope = this.startOscilloscope.bind(this);
     this.setAudioInterface = this.setAudioInterface.bind(this);
-    this.setupEffects = this.setupEffects.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.onPlay = this.onPlay.bind(this);
     this.onPause = this.onPause.bind(this);
     this.onListen = this.onListen.bind(this);
@@ -80,8 +64,6 @@ class Audio extends React.Component {
     this.updateAudio();
 
     this.startOscilloscope(this.state.audioContext);
-
-    this.setupEffects(this.state.audioContext);
   }
 
   componentWillUnmount() {
@@ -190,62 +172,6 @@ class Audio extends React.Component {
         });
       };
     });
-
-    // let leaves = document.getElementsByClassName("vtree-leaf");
-    // [...leaves].forEach(leaf => {
-    //   leaf.onclick = function(){clic.play()};
-    //   leaf.onmouseover = function(){
-    //     hover.pause();
-    //     hover.currentTime = 0;
-    //     hover.play()
-    //   };
-    // });
-
-    // let closeButtons = document.getElementsByClassName("window-close");
-    // [...closeButtons].forEach(btn => {
-    //   btn.onclick = function(){close.play()};
-    // });
-
-    // let leaves = document.getElementsByClassName("vtree-leaf");
-    // [...leaves].forEach(leaf => {
-    //   leaf.addEventListener("mouseover", function( event ) {
-    //     // Show loading animation.
-    //     var playPromise = hover.play();
-      
-    //     if (playPromise !== undefined) {
-    //       playPromise.then(_ => {
-    //         // Automatic playback started!
-    //         // Show playing UI.
-    //         // We can now safely pause video...
-    //         //hover.pause();
-    //         //hover.currentTime = 0;
-    //       })
-    //       .catch(error => {
-    //         // Auto-play was prevented
-    //         // Show paused UI.
-    //       });
-    //     }
-    //   }, false);
-    // });
-  }
-
-  setupEffects = (context) => {
-    Tone.setContext(context);
-
-    this.setState({
-      panner: new Tone.AutoPanner({
-        frequency: 4,
-        depth: 1
-      }).toDestination().start()
-    })
-    
-    //document.querySelector("#panner").addEventListener("input", (e) => panner.frequency.value = parseFloat(e.target.value));
-  }
-
-  handleChange = (e) => {
-    //console.log(this.state.panner.frequency.value);
-
-    this.state.panner.frequency.value = parseFloat(e.target.value);
   }
 
   onPlay = (e) => {
@@ -289,39 +215,41 @@ class Audio extends React.Component {
   render() {
     return (
       <div id="audio">
-        <AudioPlayer
-          src={this.state.track}
-          ref={this.player}
-          loop={true}
-          autoPlay={false}
-          autoPlayAfterSrcChange={true}
-          showSkipControls={false}
-          showJumpControls={false}
-          showDownloadProgress={true}
-          showFilledProgress={false}
-          showFilledVolume={false}
-          customAdditionalControls={[]}
-          header={this.state.header}
-          defaultCurrentTime="loading"
-          defaultDuration="loading" 
-          customIcons={{
-            play: "▶",
-            pause: "❚❚"
-          }}
-          onPlay={this.onPlay}
-          onPause={this.onPause}
-          onListen={this.onListen}
-          onSeeking={this.onSeeking}
-          onCanPlayThrough={this.onCanPlayThrough}
-        />
+        <div id="audio-player">
+          <AudioPlayer
+            src={this.state.track}
+            ref={this.player}
+            loop={true}
+            autoPlay={false}
+            autoPlayAfterSrcChange={true}
+            showSkipControls={false}
+            showJumpControls={false}
+            showDownloadProgress={true}
+            showFilledProgress={false}
+            showFilledVolume={false}
+            customAdditionalControls={[]}
+            header={this.state.header}
+            defaultCurrentTime="loading"
+            defaultDuration="loading" 
+            customIcons={{
+              play: "▶",
+              pause: "❚❚"
+            }}
+            onPlay={this.onPlay}
+            onPause={this.onPause}
+            onListen={this.onListen}
+            onSeeking={this.onSeeking}
+            onCanPlayThrough={this.onCanPlayThrough}
+          />
 
-        {/* <input type="range" id="panner" label="Panner" min="1" max="15" value={this.state.value} step="0.5"  units="hz" onChange={this.handleChange} /> */}
-
-        <div id="audio-interface">
-          <audio id="audio-clic" src={clic}></audio>
-          <audio id="audio-close" src={close}></audio>
-          <audio id="audio-hover" src={hover}></audio>
+          <div id="audio-interface">
+            <audio id="audio-clic" src={clic}></audio>
+            <audio id="audio-close" src={close}></audio>
+            <audio id="audio-hover" src={hover}></audio>
+          </div>
         </div>
+
+        <AudioEffects />
       </div>
     );
   }
