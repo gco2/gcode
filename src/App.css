@@ -620,7 +620,8 @@
 }
 
 .track-name-marquee {
-  margin-top: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
   background-color: rgba(239,255,0, 0.32);
 }
 
@@ -635,6 +636,10 @@
   padding: 0 !important;
   background-color: #fbfbfb !important;
   box-shadow: none !important;
+}
+
+.rhap_header {
+  min-height: 15px;
 }
 
 .rhap_main-controls-button {

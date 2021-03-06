@@ -117,7 +117,7 @@ class TerminalWindow extends React.Component {
   }
   
   render() {
-    return (        
+    return (
       <Terminal
         color='#000'
         outputColor='#000'

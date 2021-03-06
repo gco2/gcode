@@ -1,16 +1,39 @@
 import React from 'react';
 import Oscilloscope from 'oscilloscope';
+import * as Tone from 'tone';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import track01 from '../assets/audio/stdio.mp3'
 import track02 from '../assets/audio/dust__45mph.mp3'
 import track03 from '../assets/audio/IPv4__RFC791.mp3'
 import track04 from '../assets/audio/5267TR98Y28_rev2(psx).mp3'
-import track05 from '../assets/audio/unknown__portal-192-168-1-1(waterfall-edit).mp3'
-
+import track05 from '../assets/audio/unknown__portal.mp3'
 import clic from '../assets/audio/clic.mp3'
 import close from '../assets/audio/close.mp3'
 import hover from '../assets/audio/hover.mp3'
+import { useWindupString, WindupChildren, Pace  } from 'windups';
+
+// let AudioTitle = (props) => {
+//   return (
+//     <div className="audio-title">
+//       <WindupChildren>
+//         <Pace getPace={(char) => (char === " " ? 20 : 10)}>
+//           <marquee className="track-name-marquee" direction="left" scrollamount="4" >{props.children.name}</marquee>
+//         </Pace>
+//       </WindupChildren>
+//     </div>
+//   );
+// };
+
+let AudioTitle = (props) => {
+  return (
+    <WindupChildren>
+      <Pace getPace={(char) => (char === " " ? 20 : 10)}>
+        {props.children}
+      </Pace>
+    </WindupChildren>
+  );
+};
 
 class Audio extends React.Component {
   constructor(props) {
@@ -21,7 +44,10 @@ class Audio extends React.Component {
     this.state = {
       track: "",
       name: "",
-      audioContext: new window.AudioContext()
+      header: "player",
+      audioContext: new window.AudioContext(),
+      effect: "",
+      panner: ''
     };
 
     this.getTrackName = this.getTrackName.bind(this);
@@ -29,7 +55,10 @@ class Audio extends React.Component {
     this.updateAudio = this.updateAudio.bind(this);
     this.startOscilloscope = this.startOscilloscope.bind(this);
     this.setAudioInterface = this.setAudioInterface.bind(this);
+    this.setupEffects = this.setupEffects.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.onPlay = this.onPlay.bind(this);
+    this.onPause = this.onPause.bind(this);
     this.onListen = this.onListen.bind(this);
     this.onSeeking = this.onSeeking.bind(this);
     this.onCanPlayThrough = this.onCanPlayThrough.bind(this);
@@ -46,11 +75,13 @@ class Audio extends React.Component {
     this.setAudioInterface();
 
     // ♫ ♪ ♫ ♪ 
-    this.addTrackNameMarquee("stdio.wav");
+    this.addTrackNameMarquee("░░░░▓▓▓▒▒▒▒▒░░░░▒▒▒▒▒▒▓▓▒▒▒▒░░░░░░░░░▓▓▓▒▒▒▒▒░▒▒▒▒▒▓▓▒▒▒▒░░░");
 
     this.updateAudio();
 
     this.startOscilloscope(this.state.audioContext);
+
+    this.setupEffects(this.state.audioContext);
   }
 
   componentWillUnmount() {
@@ -66,7 +97,7 @@ class Audio extends React.Component {
   }
 
   addTrackNameMarquee = (name) => {
-    let trackHeader = document.getElementsByClassName("rhap_header")[0];
+    let trackHeader = document.getElementsByClassName("rhap_main")[0];
 
     let trackNode = document.createElement('marquee');
     trackNode.className = "track-name-marquee";
@@ -74,28 +105,47 @@ class Audio extends React.Component {
     trackNode.setAttribute("direction", "left");
     trackNode.setAttribute("scrollamount", 4);
     
-    trackHeader.appendChild(trackNode);
+    trackHeader.prepend(trackNode);
   }
 
-  updateAudio = (e) => {
+  updateAudio = (e) => {    
     let marquee = document.getElementsByClassName("track-name-marquee")[0];
 
     marquee.addEventListener('DOMSubtreeModified', (event) => {
-      let trackID;
       let trackName = marquee.getAttribute("track-id");
 
       if (trackName == "stdio") {
-        this.setState({ track: track01})
+        this.setState({ track: track01});
       } else if (trackName == "dust__45mph") {
-        this.setState({ track: track02})
+        this.setState({ track: track02});
       } else if (trackName == "IPv4__RFC791") {
-        this.setState({ track: track03})
+        this.setState({ track: track03});
       } else if (trackName == "5267TR98Y28_rev2(psx)") {
-        this.setState({ track: track04})
-      } else if (trackName == "unknown__portal-192-168-1-1(waterfall-edit)") {
-        this.setState({ track: track05})
+        this.setState({ track: track04});
+      } else if (trackName == "unknown__portal") {
+        this.setState({ track: track05});
       }
     });
+  }
+
+  startOscilloscope = (context) => {
+    const canvas = document.createElement('canvas')
+    canvas.classList.add("oscilloscope");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    document.getElementsByClassName("footer")[0].appendChild(canvas);
+  
+    const source = context.createMediaElementSource(this.player.current.audio.current)
+    const scope = new Oscilloscope(source)
+    
+    source.connect(context.destination);
+
+    const ctx = canvas.getContext('2d')
+    ctx.lineWidth = 2
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)'
+  
+    // start default animation loop
+    scope.animate(ctx)
   }
 
   setAudioInterface = () => {
@@ -177,43 +227,51 @@ class Audio extends React.Component {
     //     }
     //   }, false);
     // });
-
-  
   }
 
+  setupEffects = (context) => {
+    Tone.setContext(context);
 
-  startOscilloscope = (context) => {
-    const canvas = document.createElement('canvas')
-    canvas.classList.add("oscilloscope");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    document.getElementsByClassName("footer")[0].appendChild(canvas);
-  
-    const source = context.createMediaElementSource(this.player.current.audio.current)
-    const scope = new Oscilloscope(source)
+    this.setState({
+      panner: new Tone.AutoPanner({
+        frequency: 4,
+        depth: 1
+      }).toDestination().start()
+    })
     
-    source.connect(context.destination)
+    //document.querySelector("#panner").addEventListener("input", (e) => panner.frequency.value = parseFloat(e.target.value));
+  }
 
-    const ctx = canvas.getContext('2d')
-    ctx.lineWidth = 2
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)'
-  
-    // start default animation loop
-    scope.animate(ctx)
+  handleChange = (e) => {
+    //console.log(this.state.panner.frequency.value);
+
+    this.state.panner.frequency.value = parseFloat(e.target.value);
   }
 
   onPlay = (e) => {
     //console.log(e)
+    this.setState({
+      header: <AudioTitle>now playing: </AudioTitle>
+    })
 
     if(this.state.audioContext.state === 'suspended') {
       this.state.audioContext.resume().then(function() {
 
-      }).catch(error => {
-        //console.log(error)
-      });
+    }).catch(error => {
+      //console.log(error)
+    });
     }
   
   }
+
+  onPause = (e) => {
+    //console.log(e)
+
+    this.setState({
+      header: <AudioTitle>player</AudioTitle>
+    })
+  }
+
 
   onListen = (e) => {
     //console.log(e)
@@ -243,7 +301,7 @@ class Audio extends React.Component {
           showFilledProgress={false}
           showFilledVolume={false}
           customAdditionalControls={[]}
-          header={"now playing: "}
+          header={this.state.header}
           defaultCurrentTime="loading"
           defaultDuration="loading" 
           customIcons={{
@@ -251,10 +309,13 @@ class Audio extends React.Component {
             pause: "❚❚"
           }}
           onPlay={this.onPlay}
+          onPause={this.onPause}
           onListen={this.onListen}
           onSeeking={this.onSeeking}
           onCanPlayThrough={this.onCanPlayThrough}
         />
+
+        {/* <input type="range" id="panner" label="Panner" min="1" max="15" value={this.state.value} step="0.5"  units="hz" onChange={this.handleChange} /> */}
 
         <div id="audio-interface">
           <audio id="audio-clic" src={clic}></audio>
