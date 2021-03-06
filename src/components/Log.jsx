@@ -17,7 +17,7 @@ let intervalID;
 let LogData = (props) => {
   return (
     <div className="log-data">
-      <div className="log-data-title">logs</div>
+      <div className="log-data-title">data</div>
       <WindupChildren>
         <Pace getPace={(char) => (char === " " ? 20 : 10)}>
           <div>{props.children.name}</div>
@@ -49,7 +49,7 @@ let LogStream = (props) => {
     // </WindupChildren>
     // <div className="log-stream">{text}</div>
     <div className="log-stream">
-      <div className="log-stream-title">data</div>
+      <div className="log-stream-title">logs</div>
       <WindupChildren onFinished={stopScroll}>
         <Pace getPace={(char) => (char === " " ? 20 : 10)}>
           <div>{props.children.stream}</div>
