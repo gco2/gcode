@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Desktop from './components/Desktop';
 import Footer from './components/Footer';
 import Audio from './components/Audio';
+import AudioEffects from './components/AudioEffects';
 import Log from './components/Log';
 import {BrowserView, MobileView, isBrowser, isMobile} from "react-device-detect";
 
@@ -23,6 +24,7 @@ class App extends React.Component {
     this.desktopRef = React.createRef();
     this.footerRef = React.createRef();
     this.audioRef = React.createRef();
+    this.audioEffectsRef = React.createRef();
     this.logRef = React.createRef();
   }
 
@@ -55,6 +57,7 @@ class App extends React.Component {
         <div className="right-panel">
           <BrowserView viewClassName='audio-browser-view'>
             <Audio ref={this.audioRef} />
+            <AudioEffects audio={this.audioRef} ref={this.audioEffectsRef} />
           </BrowserView>
           <Log ref={this.logRef} />
         </div>

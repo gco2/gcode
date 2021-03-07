@@ -1,6 +1,6 @@
 import React from 'react';
 import Oscilloscope from 'oscilloscope';
-import AudioEffects from './AudioEffects';
+import * as Tone from 'tone';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import track01 from '../assets/audio/stdio.mp3'
@@ -33,11 +33,19 @@ class Audio extends React.Component {
       track: "",
       name: "",
       header: "player",
-      audioContext: new window.AudioContext()
+      audioContext: new window.AudioContext(),
+      source: "",
+      gainNode: "",
+      pitch: "",
+      filter: "",
+      distortion: "",
+      delay: ""
     };
 
     this.getTrackName = this.getTrackName.bind(this);
     this.addTrackNameMarquee = this.addTrackNameMarquee.bind(this);
+    this.setupAudio = this.setupAudio.bind(this);
+    this.setupEffects = this.setupEffects.bind(this);
     this.updateAudio = this.updateAudio.bind(this);
     this.startOscilloscope = this.startOscilloscope.bind(this);
     this.setAudioInterface = this.setAudioInterface.bind(this);
@@ -56,14 +64,25 @@ class Audio extends React.Component {
       name: ""
     })
 
-    this.setAudioInterface();
-
     // ♫ ♪ ♫ ♪ 
-    this.addTrackNameMarquee("░░░░▓▓▓▒▒▒▒▒░░░░▒▒▒▒▒▒▓▓▒▒▒▒░░░░░░░░░▓▓▓▒▒▒▒▒░▒▒▒▒▒▓▓▒▒▒▒░░░");
-
-    this.updateAudio();
-
-    this.startOscilloscope(this.state.audioContext);
+    const audioPromise = new Promise((resolve, reject) => {
+      resolve();
+    }).then((value) => {
+      this.addTrackNameMarquee("░░░░▓▓▓▒▒▒▒▒░░░░▒▒▒▒▒▒▓▓▒▒▒▒░░░░░░░░░▓▓▓▒▒▒▒▒░▒▒▒▒▒▓▓▒▒▒▒░░░");
+    }).then((value) => {
+      this.setAudioInterface();
+    }).then((value) => {
+      this.setupAudio(this.state.audioContext);
+    }).then((value) => {
+      this.setupEffects();
+    }).then((value) => {
+      this.updateAudio();
+    }).then((value) => {
+      this.startOscilloscope(this.state.audioContext);    
+    }).catch(error => {
+      console.log(error)
+    });
+    
   }
 
   componentWillUnmount() {
@@ -89,6 +108,19 @@ class Audio extends React.Component {
     
     trackHeader.prepend(trackNode);
   }
+
+  setupAudio = (context) => {
+    this.setState({
+      source: context.createMediaElementSource(this.player.current.audio.current),
+      gainNode: context.createGain()
+    })
+  }
+
+  setupEffects = (context) => {
+    //this.state.source.connect(context.destination);
+
+  }
+
 
   updateAudio = (e) => {    
     let marquee = document.getElementsByClassName("track-name-marquee")[0];
@@ -116,18 +148,107 @@ class Audio extends React.Component {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     document.getElementsByClassName("footer")[0].appendChild(canvas);
-  
-    const source = context.createMediaElementSource(this.player.current.audio.current)
-    const scope = new Oscilloscope(source)
     
-    source.connect(context.destination);
+    // Tone.setContext(context)
 
-    const ctx = canvas.getContext('2d')
-    ctx.lineWidth = 2
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)'
+    // const oscillator = new Tone.Oscillator().start();
+    // the audio will go from the oscillator to the speakers
+    // oscillator.connect(context.destination);
+    // a convenience for connecting to the master output is also provided:
+    //oscillator.toDestination();
+
+    // create an autofilter and start it's LFO
+    // const autoFilter = new Tone.AutoFilter("4n").toDestination().start();
+    // const dist = new Tone.Distortion(0.8).toDestination();
+
+    //const toneMedia = new Tone.UserMedia();
+    //const osc = new Tone.Oscillator(440, "sine").toDestination().start();
+    //this.state.source.connect(osc);
+    //oscillator.connect(context.destination);
+
+
+
+
+    // var gainNode = this.state.audioContext.createGain();
+    // gainNode.gain.value = 0.2;
+    // this.state.source.connect(gainNode);
+    // gainNode.connect(this.state.audioContext.destination);
+
+    // const scope = new Oscilloscope(gainNode)
+
+
+
+
+    
+
+    const effetPromise = new Promise((resolve, reject) => {
+      resolve();
+    }).then((value) => {
+      this.state.source.connect(this.state.gainNode);
+
+    }).then((value) => {
+      Tone.setContext(this.state.audioContext)
+
+    }).then((value) => {
+      this.setState({
+        pitch: new Tone.PitchShift()
+      })
   
-    // start default animation loop
-    scope.animate(ctx)
+    }).then((value) => {
+      this.setState({
+        filter: new Tone.AutoFilter({
+          frequency: 2,
+          depth: 0.6
+        })
+      })
+    }).then((value) => {
+      this.setState({
+        distortion: new Tone.Distortion({
+          distortion: 0.0
+        })
+      })
+    }).then((value) => {
+      this.setState({
+        delay: new Tone.PingPongDelay ({
+          delayTime: 0.0
+        })
+      })
+    }).then((value) => {
+      Tone.connect(this.state.gainNode, this.state.pitch);
+      //Tone.connect(this.state.gainNode, this.state.filter);
+      Tone.connect(this.state.gainNode, this.state.distortion);
+      Tone.connect(this.state.gainNode, this.state.delay);
+    }).then((value) => {
+      //Tone.connect(this.state.gainNode, this.state.audioContext.destination);
+      Tone.connect(this.state.pitch, this.state.audioContext.destination);
+      //Tone.connect(this.state.filter, this.state.audioContext.destination);
+      Tone.connect(this.state.distortion, this.state.audioContext.destination);
+      Tone.connect(this.state.delay, this.state.audioContext.destination);
+    }).then((value) => {
+      // this.state.source.connect(gainNode);
+      // gainNode.connect(this.state.audioContext.destination);
+
+
+      // console.log(this.state.source)
+      // console.log(context.destination)
+      const scope = new Oscilloscope(this.state.gainNode)
+      
+      //this.state.source.connect(context.destination);
+
+      const ctx = canvas.getContext('2d')
+      ctx.lineWidth = 2
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)'
+    
+      // start default animation loop
+      scope.animate(ctx)
+    }).catch(error => {
+      console.log(error)
+    });
+
+    
+
+    
+
   }
 
   setAudioInterface = () => {
@@ -182,7 +303,7 @@ class Audio extends React.Component {
 
     if(this.state.audioContext.state === 'suspended') {
       this.state.audioContext.resume().then(function() {
-
+      
     }).catch(error => {
       //console.log(error)
     });
@@ -248,8 +369,6 @@ class Audio extends React.Component {
             <audio id="audio-hover" src={hover}></audio>
           </div>
         </div>
-
-        <AudioEffects />
       </div>
     );
   }
