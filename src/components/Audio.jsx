@@ -67,7 +67,7 @@ class Audio extends React.Component {
     const audioPromise = new Promise((resolve, reject) => {
       resolve();
     }).then((value) => {
-      this.addTrackNameMarquee("░░░░▓▓▓▒▒▒▒▒░░░░▒▒▒▒▒▒▓▓▒▒▒▒░░░░░░░░░▓▓▓▒▒▒▒▒░▒▒▒▒▒▓▓▒▒▒▒░░░");
+      this.addTrackNameMarquee("::stdio.wav::");
     }).then((value) => {
       this.setAudioInterface();
     }).then((value) => {

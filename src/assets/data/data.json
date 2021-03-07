@@ -1,6 +1,6 @@
 {
     "me":{
-       "label":"me",
+       "label":"user",
        "id":"me",
        "parent":"",
        "opened":true,
@@ -56,7 +56,7 @@
       "selected":false
    },
    "unknown__portal":{
-      "label":"∷unknown__portal∷(192.168.1.1 waterfall edit).wav",
+      "label":"unknown__portal_192.168.1.1 (waterfall edit).wav",
       "id":"unknown__portal",
       "parent":"audio",
       "opened":false,

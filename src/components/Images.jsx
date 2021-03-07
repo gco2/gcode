@@ -112,7 +112,7 @@ class Images extends React.Component {
             <img src={pigeon} alt="pigeon"/>
 
             <div className="log-info">
-              pigeon seeking seeds
+              pigeons seeking seeds
             </div>
           </div>
         </Window>

@@ -144,7 +144,7 @@ class Tree extends React.Component {
   
         if (currentTrackName && (trackName != currentTrackName)) {
           document.getElementsByClassName("track-name-marquee")[0].setAttribute("track-id", id);
-          document.getElementsByClassName("track-name-marquee")[0].innerText = trackName;
+          document.getElementsByClassName("track-name-marquee")[0].innerText = "::" + trackName + "::";
         }
       }  
     }
