@@ -1,6 +1,6 @@
 import React from 'react';
-import Oscilloscope from 'oscilloscope';
 import * as Tone from 'tone';
+import Oscilloscope from 'oscilloscope';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import track01 from '../assets/audio/stdio.mp3'
@@ -37,7 +37,6 @@ class Audio extends React.Component {
       source: "",
       gainNode: "",
       pitch: "",
-      filter: "",
       distortion: "",
       delay: ""
     };
@@ -117,70 +116,6 @@ class Audio extends React.Component {
   }
 
   setupEffects = (context) => {
-    //this.state.source.connect(context.destination);
-
-  }
-
-
-  updateAudio = (e) => {    
-    let marquee = document.getElementsByClassName("track-name-marquee")[0];
-
-    marquee.addEventListener('DOMSubtreeModified', (event) => {
-      let trackName = marquee.getAttribute("track-id");
-
-      if (trackName == "stdio") {
-        this.setState({ track: track01});
-      } else if (trackName == "dust__45mph") {
-        this.setState({ track: track02});
-      } else if (trackName == "IPv4__RFC791") {
-        this.setState({ track: track03});
-      } else if (trackName == "5267TR98Y28_rev2(psx)") {
-        this.setState({ track: track04});
-      } else if (trackName == "unknown__portal") {
-        this.setState({ track: track05});
-      }
-    });
-  }
-
-  startOscilloscope = (context) => {
-    const canvas = document.createElement('canvas')
-    canvas.classList.add("oscilloscope");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    document.getElementsByClassName("footer")[0].appendChild(canvas);
-    
-    // Tone.setContext(context)
-
-    // const oscillator = new Tone.Oscillator().start();
-    // the audio will go from the oscillator to the speakers
-    // oscillator.connect(context.destination);
-    // a convenience for connecting to the master output is also provided:
-    //oscillator.toDestination();
-
-    // create an autofilter and start it's LFO
-    // const autoFilter = new Tone.AutoFilter("4n").toDestination().start();
-    // const dist = new Tone.Distortion(0.8).toDestination();
-
-    //const toneMedia = new Tone.UserMedia();
-    //const osc = new Tone.Oscillator(440, "sine").toDestination().start();
-    //this.state.source.connect(osc);
-    //oscillator.connect(context.destination);
-
-
-
-
-    // var gainNode = this.state.audioContext.createGain();
-    // gainNode.gain.value = 0.2;
-    // this.state.source.connect(gainNode);
-    // gainNode.connect(this.state.audioContext.destination);
-
-    // const scope = new Oscilloscope(gainNode)
-
-
-
-
-    
-
     const effetPromise = new Promise((resolve, reject) => {
       resolve();
     }).then((value) => {
@@ -224,31 +159,48 @@ class Audio extends React.Component {
       //Tone.connect(this.state.filter, this.state.audioContext.destination);
       Tone.connect(this.state.distortion, this.state.audioContext.destination);
       Tone.connect(this.state.delay, this.state.audioContext.destination);
-    }).then((value) => {
-      // this.state.source.connect(gainNode);
-      // gainNode.connect(this.state.audioContext.destination);
-
-
-      // console.log(this.state.source)
-      // console.log(context.destination)
-      const scope = new Oscilloscope(this.state.gainNode)
-      
-      //this.state.source.connect(context.destination);
-
-      const ctx = canvas.getContext('2d')
-      ctx.lineWidth = 2
-      ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)'
-    
-      // start default animation loop
-      scope.animate(ctx)
     }).catch(error => {
       console.log(error)
     });
+  }
 
+  updateAudio = (e) => {    
+    let marquee = document.getElementsByClassName("track-name-marquee")[0];
+
+    marquee.addEventListener('DOMSubtreeModified', (event) => {
+      let trackName = marquee.getAttribute("track-id");
+
+      if (trackName == "stdio") {
+        this.setState({ track: track01});
+      } else if (trackName == "dust__45mph") {
+        this.setState({ track: track02});
+      } else if (trackName == "IPv4__RFC791") {
+        this.setState({ track: track03});
+      } else if (trackName == "5267TR98Y28_rev2(psx)") {
+        this.setState({ track: track04});
+      } else if (trackName == "unknown__portal") {
+        this.setState({ track: track05});
+      }
+    });
+  }
+
+  startOscilloscope = (context) => {
+    const canvas = document.createElement('canvas')
+    canvas.classList.add("oscilloscope");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    document.getElementsByClassName("footer")[0].appendChild(canvas);
     
-
+    const scope = new Oscilloscope(this.state.gainNode)
     
+    //this.state.source.connect(context.destination);
 
+    const ctx = canvas.getContext('2d')
+    ctx.lineWidth = 2
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)'
+  
+    // start default animation loop
+    scope.animate(ctx)
   }
 
   setAudioInterface = () => {
