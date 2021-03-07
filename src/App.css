@@ -684,6 +684,10 @@
   font-size: 13px !important;
 }
 
+.rhap_progress-container {
+  outline: none;
+}
+
 .rhap_progress-indicator {
   box-sizing: border-box;
   position: absolute;
@@ -720,6 +724,46 @@
   height: 100%;
 }
 
+/* AUDIO EFFECTS */
+
+#audio-effects {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  min-width: 10%;
+  height: auto;
+  border-top: 1px dashed #000;
+  padding: 1em;
+}
+
+.audio-effects-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100%;
+  min-width: 10%;
+  height: auto;
+}
+
+.audio-effects-title {
+  margin-bottom: 0.5em;
+}
+
+.audio-fader {
+  margin-top: 0.5em;
+}
+
+.audio-effects-label {
+  display: block;
+  width: min-content;
+}
+
+.audio-effects-input {
+
+}
 
 input {
   outline: none;
