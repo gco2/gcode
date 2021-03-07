@@ -46,7 +46,7 @@ function generateNewQuote() {
     index = generateNumber(quotesPool);
   }
   let newQuote = quotesPool[index];
-  let quote = document.getElementById("quote");
+  let quote = document.getElementsByClassName("quote")[0];
 
   if (quote) {
       quote.innerHTML = newQuote[0];
@@ -80,7 +80,7 @@ let TerminalData = (props) => {
       <WindupChildren>
         <Pace getPace={(char) => (char === " " ? 20 : 10)}>
           {/* <div>{Math.floor(Math.random() * 50000)}</div> */}
-          <p id="quote">{props.children.quote}</p>
+          <p className="quote">{props.children.quote}</p>
         </Pace>
       </WindupChildren>
     </div>
@@ -144,6 +144,7 @@ class TerminalWindow extends React.Component {
           }
         }}
         commandPassThrough={cmd => <TerminalData>{this.state}</TerminalData>}
+
         descriptions={{
           // 'open-google': 'opens google.com',
           // showmsg: 'shows a message',
