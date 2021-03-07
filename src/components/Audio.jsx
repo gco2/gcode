@@ -38,7 +38,8 @@ class Audio extends React.Component {
       gainNode: "",
       pitch: "",
       distortion: "",
-      delay: ""
+      delay: "",
+      reverb: ""
     };
 
     this.getTrackName = this.getTrackName.bind(this);
@@ -119,10 +120,11 @@ class Audio extends React.Component {
     const effetPromise = new Promise((resolve, reject) => {
       resolve();
     }).then((value) => {
+      this.state.gainNode.gain.value = 0.5;
       this.state.source.connect(this.state.gainNode);
 
     }).then((value) => {
-      Tone.setContext(this.state.audioContext)
+      Tone.setContext(this.state.audioContext);
 
     }).then((value) => {
       this.setState({
@@ -144,21 +146,26 @@ class Audio extends React.Component {
       })
     }).then((value) => {
       this.setState({
-        delay: new Tone.PingPongDelay ({
+        delay: new Tone.PingPongDelay({
           delayTime: 0.0
         })
       })
     }).then((value) => {
+      this.setState({
+        reverb: new Tone.Reverb()
+      })
+
+    }).then((value) => {
       Tone.connect(this.state.gainNode, this.state.pitch);
-      //Tone.connect(this.state.gainNode, this.state.filter);
       Tone.connect(this.state.gainNode, this.state.distortion);
       Tone.connect(this.state.gainNode, this.state.delay);
+      Tone.connect(this.state.gainNode, this.state.reverb);
     }).then((value) => {
       //Tone.connect(this.state.gainNode, this.state.audioContext.destination);
       Tone.connect(this.state.pitch, this.state.audioContext.destination);
-      //Tone.connect(this.state.filter, this.state.audioContext.destination);
       Tone.connect(this.state.distortion, this.state.audioContext.destination);
       Tone.connect(this.state.delay, this.state.audioContext.destination);
+      Tone.connect(this.state.reverb, this.state.audioContext.destination);
     }).catch(error => {
       console.log(error)
     });
@@ -191,7 +198,7 @@ class Audio extends React.Component {
     canvas.height = window.innerHeight;
     document.getElementsByClassName("footer")[0].appendChild(canvas);
     
-    const scope = new Oscilloscope(this.state.gainNode)
+    const scope = new Oscilloscope(this.state.gainNode);
     
     //this.state.source.connect(context.destination);
 
@@ -200,7 +207,7 @@ class Audio extends React.Component {
     ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)'
   
     // start default animation loop
-    scope.animate(ctx)
+    scope.animate(ctx);
   }
 
   setAudioInterface = () => {
