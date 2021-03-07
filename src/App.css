@@ -67,7 +67,7 @@
 
 .terminal-base input {
   /* background: transparent !important; */
-  background-color:#efff00;
+  background-color:#ccff00;
   font-size: 13px !important;
   opacity: 1;
   animation: fade 1s linear forwards;
@@ -76,7 +76,7 @@
 }
 
 .terminal-base input:focus {
-  background-color:#efff00;
+  background-color:#ccff00;
   animation: 0;
 }
 
@@ -626,7 +626,8 @@
 .track-name-marquee {
   margin-top: 0.5em;
   margin-bottom: 1em;
-  background-color: rgba(239,255,0, 0.32);
+  /* background-color: rgba(239,255,0, 0.32); */
+  background-color: rgba(204,255,0, 0.7);
 }
 
 .rhap_container {
@@ -736,6 +737,7 @@
   height: auto;
   border-top: 1px dashed #000;
   padding: 1em;
+  overflow: hidden;
 }
 
 .audio-effects-row {
@@ -765,8 +767,20 @@
 
 }
 
+#audio-effects input:hover {
+  cursor: pointer !important;
+}
+
 input {
   outline: none;
+}
+
+input[type='range']:hover {
+  cursor: pointer !important;
+}
+
+input[type='range']:active {
+  cursor: pointer !important;
 }
 
 /*Chrome*/
@@ -775,14 +789,22 @@ input {
     overflow: hidden;
     width: 80px;
     -webkit-appearance: none;
-    background-color: #9a905d;
+    background-color: #ddd;
+  }
+
+  input[type='range']:hover {
+    cursor: pointer !important;
   }
   
   input[type='range']::-webkit-slider-runnable-track {
     height: 10px;
     -webkit-appearance: none;
-    color: #13bba4;
+    color: #ccff00;
     margin-top: -1px;
+  }
+
+  input[type='range']::-webkit-slider-runnable-track:hover {
+    cursor: pointer !important;
   }
   
   input[type='range']::-webkit-slider-thumb {
@@ -790,24 +812,31 @@ input {
     -webkit-appearance: none;
     height: 10px;
     cursor: ew-resize;
-    background: #434343;
-    box-shadow: -80px 0 0 80px #43e5f7;
+    background: rgba(144,144,144,1.0) !important;
+    box-shadow: -80px 0 0 80px #ccff00;
   }
 
+  input[type='range']::-webkit-slider-thumb:hover {
+    cursor: pointer !important;
+  }
+
+  input[type='range']::-webkit-slider-thumb:active {
+    cursor: pointer !important;
+  }
 }
 /** FF*/
 input[type="range"]::-moz-range-progress {
-background-color: #43e5f7; 
+  background-color: #ccff00; 
 }
 input[type="range"]::-moz-range-track {  
-background-color: #9a905d;
+  background-color: #ddd;
 }
 /* IE*/
 input[type="range"]::-ms-fill-lower {
-background-color: #43e5f7; 
+  background-color: #ccff00; 
 }
 input[type="range"]::-ms-fill-upper {  
-background-color: #9a905d;
+  background-color: #ddd;
 }
 
 
@@ -855,7 +884,8 @@ background-color: #9a905d;
 }
 
 .log-data div {
-  background-color: rgba(239,255,0, 0.32);
+  /* background-color: rgba(239,255,0, 0.32); */
+  background-color: rgba(204,255,0, 0.7);
 }
 
 .log-stream {
