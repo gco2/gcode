@@ -198,7 +198,7 @@ class Audio extends React.Component {
     canvas.height = window.innerHeight;
     document.getElementsByClassName("footer")[0].appendChild(canvas);
     
-    const scope = new Oscilloscope(this.state.gainNode);
+    const scope = new Oscilloscope(this.state.source);
     
     //this.state.source.connect(context.destination);
 
