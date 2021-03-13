@@ -49,7 +49,6 @@ function generateNewQuote() {
   let quote = document.getElementsByClassName("quote")[0];
 
   if (quote) {
-      quote.innerHTML = newQuote[0];
       resultQuote = newQuote[0];
 
       oldQuoteIndex = index;
@@ -58,7 +57,6 @@ function generateNewQuote() {
   }
 }
     
-//Show new quote on 'Random Quote' button click
 function onQuoteButtonClick() {
   generateNewQuote();
 }
