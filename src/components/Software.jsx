@@ -138,7 +138,7 @@ class Software extends React.Component {
                   flow is a standalone audio application.
                 </p>
                 <p>
-                  The visual programming interface let's you create patches (filtergraphs) from scratch using internal effects (gain, gate, eq, reverb).
+                  The visual programming interface let you create patches (filtergraphs) from scratch using internal effects (gain, gate, eq, reverb).
                 </p>
                 <p>
                   VST2/VST3 can also be used as audio or MIDI nodes into the flow graph.
