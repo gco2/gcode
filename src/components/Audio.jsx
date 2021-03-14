@@ -29,6 +29,8 @@ class Audio extends React.Component {
     
     this.player = React.createRef();
 
+    this.firstTrack = true;
+
     this.state = {
       track: "",
       name: "",
@@ -178,6 +180,11 @@ class Audio extends React.Component {
       let trackName = marquee.getAttribute("track-id");
 
       if (trackName == "stdio") {
+        if (this.firstTrack) {
+          this.player.current.audio.current.play();
+          this.firstTrack = false;
+        }
+       
         this.setState({ track: track01});
       } else if (trackName == "dust__45mph") {
         this.setState({ track: track02});
@@ -282,10 +289,9 @@ class Audio extends React.Component {
     this.setState({
       header: <AudioTitle>now playing: </AudioTitle>
     })
-
     if(this.state.audioContext.state === 'suspended') {
       this.state.audioContext.resume().then(function() {
-      
+
     }).catch(error => {
       //console.log(error)
     });
