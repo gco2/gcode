@@ -33,7 +33,7 @@ class Desktop extends React.Component {
               <Window>
                 <div>
                   <p>sorry your device is too powerful</p>
-                  <p>try again from a <a href="https://www.goto10.fr/" target="_blank">BBS</a> server near you</p>
+                  <p>try again from a desktop computer or a <a href="https://www.goto10.fr/" target="_blank">BBS</a> server near you</p>
                   <p>----------</p>
                   <p>thank you :)</p>
                 </div>

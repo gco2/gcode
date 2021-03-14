@@ -1125,8 +1125,8 @@ input[type="range"]::-ms-fill-upper {
 @media (max-width : 550px) {
   #windows-mobile .window {
     visibility: visible;
-    width: 200px;
-    height: 180px;
+    width: 220px;
+    height: 200px;
     z-index: 999;
   }
 
