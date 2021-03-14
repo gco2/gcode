@@ -230,6 +230,13 @@
       "opened":false,
       "selected":false
     },
+    "quartz":{
+      "label":"quartz",
+      "id":"quartz",
+      "parent":"poems",
+      "opened":false,
+      "selected":false
+    },
    "software":{
       "label":"software",
       "id":"software",

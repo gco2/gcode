@@ -190,6 +190,20 @@ class Poems extends React.Component {
               </div>
             </div>
           </Window>
+
+          <Window>
+            <div id="quartz" className="poems-window">
+              <div className="poems-text">
+                <p className="quartz-1">◆◆◆◆</p>
+                <p className="quartz-2">◇◇◇◇</p>
+                <p className="quartz-3">◆◆◆◆</p>
+                <p className="quartz-4">◇◇◇◇</p>
+              </div>  
+              <div className="log-info">
+                E, 5°X	50–250 kHz	longitudal low-frequency crystal filters
+              </div>
+            </div>
+          </Window>
         </div>
     );
   }

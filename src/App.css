@@ -3,6 +3,15 @@
   50% { opacity: 1; }
 }
 
+@keyframes rotation {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to {
+      -webkit-transform: rotate(359deg);
+  }
+}
+
 .app {
   display: flex;
   justify-content: flex-start;
@@ -634,6 +643,27 @@
 
 #son p {
   margin: 0.5em;
+}
+
+#quartz p {
+  position: absolute;
+  -webkit-animation: rotation 1s infinite linear;
+}
+
+#quartz .quartz-1 {
+  -webkit-animation-duration: 0.25s;
+}
+
+#quartz .quartz-2 {
+  -webkit-animation-duration: 0.75s;
+}
+
+#quartz .quartz-3 {
+  -webkit-animation-duration: 0.125s;
+}
+
+#quartz .quartz-4 {
+  -webkit-animation-duration: 1.3525s;
 }
 
 /* FOOTER */
