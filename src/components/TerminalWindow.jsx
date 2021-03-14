@@ -20,7 +20,7 @@ const quotesPool = [
   ["everything is connected"],
   ["where is my mind"],
   ["what's that ?"],
-  ["<p>this is an HTML tag</p>"],
+  ["<p>this is a HTML tag</p>"],
   ["please say it again"],
   ["#define undefined"],
   ["昔のぼくらはこどもたち"],
