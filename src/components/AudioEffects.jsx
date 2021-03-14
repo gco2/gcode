@@ -67,7 +67,7 @@ class AudioEffects extends React.Component {
   render() {
     return (
       <div id="audio-effects">
-        <div className="audio-effects-title">dsp</div>
+        <div className="audio-effects-title">audio</div>
         <div className="audio-effects-row">
           <div className="audio-fader">
             <input className="audio-effects-input" type="range" id="pitch" label="Pitch" min="0.0" max="24.0" defaultValue="0.0" value={this.state.value} step="0.01"  units="hz" onChange={this.updatePitch} />

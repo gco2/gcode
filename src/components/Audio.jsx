@@ -252,6 +252,29 @@ class Audio extends React.Component {
         });
       };
     });
+
+    let terminal = document.getElementsByClassName("terminal-base")[0];
+    let input = terminal.getElementsByTagName("input")[0];
+
+    input.addEventListener('input', function (evt) {
+      hover.play().then(_ => {
+        //console.log("hovered");
+      })
+      .catch(error => {
+        //console.log(error)
+      });
+    });
+
+    input.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        clic.play().then(_ => {
+          //console.log("hovered");
+        })
+        .catch(error => {
+          //console.log(error)
+        });  
+      }
+    })
   }
 
   onPlay = (e) => {
