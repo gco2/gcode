@@ -90,9 +90,11 @@ class TerminalWindow extends React.Component {
     super(props);
 
     this.state = {
-      quote: "type 'help' or try random commands"
+      quote: "type 'help' or try random commands",
+      invert: true
     };
 
+    this.invert = this.invert.bind(this);
     this.focusTerminalInput = this.focusTerminalInput.bind(this);
   }
 
@@ -105,6 +107,31 @@ class TerminalWindow extends React.Component {
 
   componentWillUnmount() {
 
+  }
+
+  invert = () => {
+    this.setState({
+      invert: !this.state.invert
+    })
+
+    let body = document.getElementsByTagName("body")[0];
+
+    let canvas = document.getElementsByClassName("oscilloscope ")[0];
+    const ctx = canvas.getContext('2d')
+
+    // DARK
+    if (this.state.invert) {
+      body.classList.add("invert");
+
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)'
+    }
+
+    // LIGHT
+    if (!this.state.invert) {
+      body.classList.remove("invert");
+
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)'
+    }
   }
 
   focusTerminalInput = () => {
@@ -139,7 +166,8 @@ class TerminalWindow extends React.Component {
                 runCommand(`edit-line ${text.slice(0, i + 1)}`);
               }, 100 * i);
             }
-          }
+          },
+          switch: this.invert
         }}
         commandPassThrough={cmd => <TerminalData>{this.state}</TerminalData>}
 
@@ -147,7 +175,8 @@ class TerminalWindow extends React.Component {
           // 'open-google': 'opens google.com',
           // showmsg: 'shows a message',
           alert: 'alert "text"', 
-          'type': "types a text"
+          'type': "types a text",
+          'switch': "light/dark mode"
         }}
         msg=''
       />

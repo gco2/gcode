@@ -67,12 +67,20 @@
 	background-color: rgba(204,255,0, 0.5);
 }
 
+.invert .vtree li.vtree-leaf a.vtree-leaf-label:hover {
+	background-color: rgba(51,0,255, 0.7) !important;
+}
+
 .vtree li.vtree-leaf.vtree-selected > a.vtree-leaf-label {
 	/* background-color: #ddf300;
 	background-color: #00edff;
 	background-color: #00ffa7; 
 	background-color: #efff00; */
 	background-color: #ccff00;
+}
+
+.invert .vtree li.vtree-leaf.vtree-selected > a.vtree-leaf-label {
+	background-color: #3300ff !important;
 }
 
 .vtree-contextmenu {
