@@ -2,8 +2,6 @@
 
 ## gcode
 
----
-
 + grid layout
 
 + based on flexbox
