@@ -281,6 +281,9 @@ class Tree extends React.Component {
           case 'nanoloop':
                 window.open("http://nanoloop.com/", "_blank"); 
                 break;
+          case 'jarvis':
+                window.open("http://www.studiojarvis.com/index.php/statements/", "_blank"); 
+                break;
           default:
             
         }
