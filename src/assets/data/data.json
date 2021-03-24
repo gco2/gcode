@@ -398,6 +398,13 @@
       "opened":false,
       "selected":false
     },
+    "colon":{
+      "label":"colon.sh",
+      "id":"colon",
+      "parent":"links",
+      "opened":false,
+      "selected":false
+    },
     "eranhill":{
       "label":"eranhill.com",
       "id":"eranhill",
@@ -478,6 +485,13 @@
     "jarvis":{
       "label":"studiojarvis.com",
       "id":"jarvis",
+      "parent":"links",
+      "opened":false,
+      "selected":false
+    },
+    "jliat":{
+      "label":"jliat.com",
+      "id":"jliat",
       "parent":"links",
       "opened":false,
       "selected":false

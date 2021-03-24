@@ -284,8 +284,13 @@ class Tree extends React.Component {
           case 'jarvis':
                 window.open("http://www.studiojarvis.com/index.php/statements/", "_blank"); 
                 break;
+          case 'colon':
+                window.open("http://colon.now.sh/", "_blank"); 
+                break;
+          case 'jliat':
+                window.open("http://jliat.com/APCDS/", "_blank"); 
+                break;
           default:
-            
         }
       }
     }
