@@ -405,6 +405,10 @@
   margin: 0 auto;
 }
 
+#windows-me a:visited {
+  color: blue;
+}
+
 #system-tools img {
   width: 299px;
   height: 243px;
