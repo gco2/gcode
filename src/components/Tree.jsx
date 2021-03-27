@@ -290,6 +290,9 @@ class Tree extends React.Component {
           case 'jliat':
                 window.open("http://jliat.com/APCDS/", "_blank"); 
                 break;
+          case 'lei':
+                window.open("https://www.leimusic.xyz/", "_blank"); 
+                break;  
           default:
         }
       }
