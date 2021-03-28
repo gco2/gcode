@@ -405,6 +405,13 @@
       "opened":false,
       "selected":false
     },
+    "emenel":{
+      "label":"emenel.ca",
+      "id":"emenel",
+      "parent":"links",
+      "opened":false,
+      "selected":false
+    },
     "eranhill":{
       "label":"eranhill.com",
       "id":"eranhill",

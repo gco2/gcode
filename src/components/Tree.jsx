@@ -292,7 +292,10 @@ class Tree extends React.Component {
                 break;
           case 'lei':
                 window.open("https://www.leimusic.xyz/", "_blank"); 
-                break;  
+                break;
+          case 'emenel':
+                window.open("http://emenel.ca/", "_blank"); 
+                break;
           default:
         }
       }
