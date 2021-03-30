@@ -38,6 +38,7 @@ class Audio extends React.Component {
       audioContext: new window.AudioContext(),
       source: "",
       isPlaying: false,
+      autoPlayOnSrcChange: false,
       gainNode: "",
       pitch: "",
       distortion: "",
@@ -52,6 +53,7 @@ class Audio extends React.Component {
     this.updateAudio = this.updateAudio.bind(this);
     this.startOscilloscope = this.startOscilloscope.bind(this);
     this.setAudioInterface = this.setAudioInterface.bind(this);
+    this.getButtonPlayState = this.getButtonPlayState.bind(this);
     this.onPlay = this.onPlay.bind(this);
     this.onPause = this.onPause.bind(this);
     this.onListen = this.onListen.bind(this);
@@ -63,9 +65,11 @@ class Audio extends React.Component {
     //let _this = this;
 
     this.setState({
-      track: track01,
-      name: ""
+      name: "",
+      track: track01
     })
+
+    //this.player.current.audio.current.pause();
 
     // ♫ ♪ ♫ ♪ 
     const audioPromise = new Promise((resolve, reject) => {
@@ -182,22 +186,33 @@ class Audio extends React.Component {
     marquee.addEventListener('DOMSubtreeModified', (event) => {
       let trackName = marquee.getAttribute("track-id");
 
-      if (trackName == "stdio") {
-        if (this.firstTrack) {
-          this.player.current.audio.current.play();
-          this.firstTrack = false;
+      const trackPromise = new Promise((resolve, reject) => {
+        resolve();
+      }).then((value) => {
+        if (this.state.autoPlayOnSrcChange == false) {
+          this.state.autoPlayOnSrcChange = true;
         }
-       
-        this.setState({ track: track01});
-      } else if (trackName == "dust__45mph") {
-        this.setState({ track: track02});
-      } else if (trackName == "IPv4__RFC791") {
-        this.setState({ track: track03});
-      } else if (trackName == "5267TR98Y28_rev2(psx)") {
-        this.setState({ track: track04});
-      } else if (trackName == "unknown__portal") {
-        this.setState({ track: track05});
-      }
+      }).then(() => {
+        if (trackName == "stdio") {
+          if (this.firstTrack) {
+            this.player.current.audio.current.play();
+            this.firstTrack = false;
+          }
+         
+          this.setState({ track: track01});
+        } else if (trackName == "dust__45mph") {
+          this.setState({ track: track02});
+        } else if (trackName == "IPv4__RFC791") {
+          this.setState({ track: track03});
+        } else if (trackName == "5267TR98Y28_rev2(psx)") {
+          this.setState({ track: track04});
+        } else if (trackName == "unknown__portal") {
+          this.setState({ track: track05});
+        }
+      }).catch(error => {
+        console.log(error)
+      });
+      
     });
   }
 
@@ -365,7 +380,7 @@ class Audio extends React.Component {
             ref={this.player}
             loop={true}
             autoPlay={false}
-            autoPlayAfterSrcChange={true}
+            autoPlayAfterSrcChange={this.state.autoPlayOnSrcChange}
             showSkipControls={false}
             showJumpControls={false}
             showDownloadProgress={true}
