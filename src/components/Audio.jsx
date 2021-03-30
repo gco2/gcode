@@ -37,6 +37,7 @@ class Audio extends React.Component {
       header: "player",
       audioContext: new window.AudioContext(),
       source: "",
+      isPlaying: false,
       gainNode: "",
       pitch: "",
       distortion: "",
@@ -77,6 +78,8 @@ class Audio extends React.Component {
       this.setupAudio(this.state.audioContext);
     }).then((value) => {
       this.setupEffects();
+    }).then((value) => {
+      //this.getButtonPlayState();
     }).then((value) => {
       this.updateAudio();
     }).then((value) => {
@@ -284,27 +287,59 @@ class Audio extends React.Component {
     })
   }
 
+  getButtonPlayState = () => {
+    let button = document.getElementsByClassName("rhap_play-pause-button")[0];
+
+    button.addEventListener("click", () => {
+      let playState = button.getAttribute("aria-label");
+
+      if (playState == "Play") {
+        // this.setState({
+        //   isPlaying: true
+        // })
+      }
+
+      if (playState == "Pause") {
+        // this.setState({
+        //   isPlaying: false
+        // })
+      }
+    })
+  }
+
   onPlay = (e) => {
     //console.log(e)
     this.setState({
       header: <AudioTitle>now playing: </AudioTitle>
     })
-    if(this.state.audioContext.state === 'suspended') {
-      this.state.audioContext.resume().then(function() {
 
-    }).catch(error => {
-      //console.log(error)
-    });
+    if(this.state.audioContext.state === 'suspended') {
+      this.state.audioContext.resume().then(() => {
+        // this.setState({
+        //   isPlaying: true
+        // })
+      }).catch(error => {
+        //console.log(error)
+      });
     }
-  
   }
 
   onPause = (e) => {
     //console.log(e)
-
     this.setState({
       header: <AudioTitle>player</AudioTitle>
-    })
+    })  
+
+    // if(this.state.audioContext.state === 'running') {
+    //   this.state.audioContext.suspend().then(() => {
+    //     this.setState({
+    //       header: <AudioTitle>player</AudioTitle>,
+    //       isPlaying: false
+    //     })  
+    //   }).catch(error => {
+    //     //console.log(error)
+    //   });
+    // }
   }
 
 
