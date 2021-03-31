@@ -426,6 +426,10 @@
   height: 259px;
 }
 
+.invert #wave-function img {
+  filter: invert(1);
+}
+
 #reabracadabra img {
   position: relative;
   top: 20px;
@@ -437,11 +441,19 @@
   top: 34px;
 }
 
+.invert #pcb-layout03 img {
+  filter: invert(1);
+}
+
 #pwm-motor img {
   position: relative;
   top: 30px;
   left: -10px;
   transform: scale(1.2);
+}
+
+.invert #pwm-motor img {
+  filter: invert(1);
 }
 
 #tree-concrete img {
@@ -466,9 +478,17 @@
   transform: scale(0.9);
 }
 
+.invert #rear-panel img {
+  filter: invert(1);
+}
+
 #din-patch img {
   position: relative;
   top: 35px;
+}
+
+.invert #din-patch img {
+  filter: invert(1);
 }
 
 #fast-tracker img {
@@ -481,6 +501,10 @@
   position: relative;
   top: -25px;
   transform: scale(0.75);
+}
+
+.invert #sample-waveform img {
+  filter: invert(1);
 }
 
 #apple img {
