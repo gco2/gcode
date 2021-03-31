@@ -102,7 +102,8 @@ class Window extends React.Component {
     let posY = Math.floor(Math.random() * (desktopHeight - windowHeight));
 
     if ( ((posY + windowHeight) >= (desktopHeight - windowHeight))) {
-      posY = desktopHeight - windowHeight*2;
+      let randY = Math.random() * 400;
+      posY = Math.floor(Math.random() * ((desktopHeight - windowHeight) - randY)) + randY;
     }
     
     this.setState({
