@@ -69,8 +69,6 @@ class Audio extends React.Component {
       track: track01
     })
 
-    //this.player.current.audio.current.pause();
-
     // ♫ ♪ ♫ ♪ 
     const audioPromise = new Promise((resolve, reject) => {
       resolve();
