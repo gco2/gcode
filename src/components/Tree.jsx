@@ -191,10 +191,16 @@ class Tree extends React.Component {
   updateLink = (e) => {
     if (e.target.offsetParent != null) {
       let leaf = e.target.offsetParent.offsetParent;
-      if (leaf && (leaf.getAttribute("data-vtree-id") == "links")) {
+      if (leaf && ( (leaf.getAttribute("data-vtree-id") == "links") || (leaf.getAttribute("data-vtree-id") == "me"))){
         let id = e.target.getAttribute("data-vtree-id");
-        
+
         switch (id) {
+          case '@gcode':
+            window.open("https://www.instagram.com/_.gcode", "_blank");
+            break;
+          case 'RSS':
+            window.open("https://nitter.cc/gcode__", "_blank");
+            break;
           case 'idpw':
             window.open("http://idpw.org/", "_blank");
             break;
