@@ -198,9 +198,6 @@ class Tree extends React.Component {
           case '@gcode':
             window.open("https://www.instagram.com/_.gcode", "_blank");
             break;
-          case 'RSS':
-            window.open("https://nitter.cc/gcode__", "_blank");
-            break;
           case 'idpw':
             window.open("http://idpw.org/", "_blank");
             break;

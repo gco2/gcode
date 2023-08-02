@@ -27,13 +27,6 @@
     "opened":false,
     "selected":false
   },
-  "RSS":{
-    "label":"RSS",
-    "id":"RSS",
-    "parent":"me",
-    "opened":false,
-    "selected":false
-  },
   "audio":{
       "label":"audio",
       "id":"audio",
