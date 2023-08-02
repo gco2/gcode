@@ -394,10 +394,11 @@
 
 #profile {
   text-align: center;
+  margin-top: 0.5rem;
 }
 
 #profile img {
-  width: 80%;
+  width: 100%;
 }
 
 #windows-me .window-content {
